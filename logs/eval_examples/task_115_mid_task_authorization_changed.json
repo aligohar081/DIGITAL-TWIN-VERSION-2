@@ -1,0 +1,1185 @@
+[
+  {
+    "seq": 12,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "USER",
+    "event": "TASK_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": "box_001",
+    "position": null,
+    "message": "task_001 created: PICK_AND_DELIVER \u2014 box_001 \u2192 loading_zone",
+    "data": {
+      "priority": "NORMAL",
+      "requested_robot": "robot_01",
+      "requested_agent": "AUTO",
+      "requested_operator": "AUTO",
+      "required_certification": null,
+      "task_type": "PICK_AND_DELIVER",
+      "box_id": "box_001",
+      "box_ids": [],
+      "source": null,
+      "destination": "loading_zone",
+      "summary": "box_001 \u2192 loading_zone"
+    }
+  },
+  {
+    "seq": 13,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "TASK",
+    "event": null,
+    "robot_id": null,
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 validation started",
+    "data": {}
+  },
+  {
+    "seq": 14,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_VALIDATED",
+    "robot_id": null,
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 validated successfully",
+    "data": {}
+  },
+  {
+    "seq": 15,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Planning PICK_AND_DELIVER for Robo-01",
+    "data": {}
+  },
+  {
+    "seq": 16,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": "box_001",
+    "position": null,
+    "message": "Source Box-A found at (3,5)",
+    "data": {}
+  },
+  {
+    "seq": 17,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Destination Loading-Zone found at (16,11)",
+    "data": {}
+  },
+  {
+    "seq": 18,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery check passed: 100% available, ~29% required",
+    "data": {}
+  },
+  {
+    "seq": 19,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Plan for task_001 contains 5 actions",
+    "data": {
+      "actions": [
+        "Navigate to Box-A",
+        "Pick Box-A",
+        "Carry Box-A to Loading-Zone",
+        "Deliver Box-A at Loading-Zone",
+        "Complete task"
+      ]
+    }
+  },
+  {
+    "seq": 20,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "BOX",
+    "event": "BOX_RESERVED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": "box_001",
+    "position": null,
+    "message": "Box-A reserved for task_001 (STORED \u2192 RESERVED)",
+    "data": {}
+  },
+  {
+    "seq": 21,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_ASSIGNED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": "box_001",
+    "position": null,
+    "message": "task_001 assigned to Robo-01",
+    "data": {}
+  },
+  {
+    "seq": 22,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": "TASK_PLANNED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 planned: 5 actions",
+    "data": {
+      "actions": [
+        "Navigate to Box-A",
+        "Pick Box-A",
+        "Carry Box-A to Loading-Zone",
+        "Deliver Box-A at Loading-Zone",
+        "Complete task"
+      ]
+    }
+  },
+  {
+    "seq": 23,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_STARTED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 started",
+    "data": {
+      "state": {
+        "task_type": "PICK_AND_DELIVER",
+        "robot": {
+          "id": "robot_01",
+          "name": "Robo-01",
+          "position": {
+            "x": 3,
+            "y": 8
+          },
+          "zone": null,
+          "status": "PLANNING",
+          "carrying_box": null,
+          "battery": 100.0,
+          "firmware_version": "2.1.0",
+          "allowed_task_types": null
+        },
+        "box": {
+          "id": "box_001",
+          "name": "Box-A",
+          "position": {
+            "x": 3,
+            "y": 5
+          },
+          "zone": "shelf_a",
+          "status": "RESERVED"
+        },
+        "source_zone": {
+          "key": "shelf_a",
+          "label": "Shelf-A",
+          "occupied": true,
+          "boxes_present": [
+            "box_001",
+            "box_004"
+          ]
+        },
+        "destination_zone": {
+          "key": "loading_zone",
+          "label": "Loading-Zone",
+          "occupied": false,
+          "boxes_present": []
+        }
+      }
+    }
+  },
+  {
+    "seq": 24,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "NAVIGATION",
+    "event": "PATH_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "A* path for Robo-01 \u2192 Box-A: 3 cells",
+    "data": {
+      "cells": 3,
+      "target": {
+        "x": 3,
+        "y": 5
+      }
+    }
+  },
+  {
+    "seq": 25,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 7
+    },
+    "message": "Robo-01 moved from (3,8) to (3,7)",
+    "data": {}
+  },
+  {
+    "seq": 26,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 100% \u2192 99%",
+    "data": {}
+  },
+  {
+    "seq": 27,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "WARNING",
+    "category": "TASK",
+    "event": "TASK_AUTHORIZATION_CHANGED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001: Robo-01 is running unapproved firmware '0.9.0-beta' (approved: ['2.1.0', '2.1.1', '2.2.0']) \u2014 flagged mid-task, not halted",
+    "data": {}
+  },
+  {
+    "seq": 28,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 6
+    },
+    "message": "Robo-01 moved from (3,7) to (3,6)",
+    "data": {}
+  },
+  {
+    "seq": 29,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 99% \u2192 98%",
+    "data": {}
+  },
+  {
+    "seq": 30,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 5
+    },
+    "message": "Robo-01 moved from (3,6) to (3,5)",
+    "data": {}
+  },
+  {
+    "seq": 31,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 98% \u2192 97%",
+    "data": {}
+  },
+  {
+    "seq": 32,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 5
+    },
+    "message": "Robo-01 reached Box-A",
+    "data": {}
+  },
+  {
+    "seq": 33,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "TASK",
+    "event": "TASK_PROGRESS",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 \u2192 PICKING: Picking Box-A",
+    "data": {
+      "progress": 20
+    }
+  },
+  {
+    "seq": 34,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": "box_001",
+    "position": {
+      "x": 3,
+      "y": 5
+    },
+    "message": "Robo-01 started picking Box-A (RESERVED \u2192 PICKING)",
+    "data": {}
+  },
+  {
+    "seq": 35,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "BOX",
+    "event": "BOX_PICKED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": "box_001",
+    "position": {
+      "x": 3,
+      "y": 5
+    },
+    "message": "Robo-01 picked Box-A (PICKING \u2192 CARRIED)",
+    "data": {}
+  },
+  {
+    "seq": 36,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "TASK",
+    "event": "TASK_PROGRESS",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 \u2192 TRANSPORTING: Carry Box-A to Loading-Zone",
+    "data": {
+      "progress": 40
+    }
+  },
+  {
+    "seq": 37,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "NAVIGATION",
+    "event": "PATH_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "A* path for Robo-01 \u2192 Loading-Zone: 19 cells",
+    "data": {
+      "cells": 19,
+      "target": {
+        "x": 16,
+        "y": 11
+      }
+    }
+  },
+  {
+    "seq": 38,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 6
+    },
+    "message": "Robo-01 moved from (3,5) to (3,6)",
+    "data": {}
+  },
+  {
+    "seq": 39,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 96% \u2192 95%",
+    "data": {}
+  },
+  {
+    "seq": 40,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 7
+    },
+    "message": "Robo-01 moved from (3,6) to (3,7)",
+    "data": {}
+  },
+  {
+    "seq": 41,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 95% \u2192 94%",
+    "data": {}
+  },
+  {
+    "seq": 42,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 8
+    },
+    "message": "Robo-01 moved from (3,7) to (3,8)",
+    "data": {}
+  },
+  {
+    "seq": 43,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 94% \u2192 93%",
+    "data": {}
+  },
+  {
+    "seq": 44,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 9
+    },
+    "message": "Robo-01 moved from (3,8) to (3,9)",
+    "data": {}
+  },
+  {
+    "seq": 45,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 93% \u2192 92%",
+    "data": {}
+  },
+  {
+    "seq": 46,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 10
+    },
+    "message": "Robo-01 moved from (3,9) to (3,10)",
+    "data": {}
+  },
+  {
+    "seq": 47,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 92% \u2192 91%",
+    "data": {}
+  },
+  {
+    "seq": 48,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (3,10) to (3,11)",
+    "data": {}
+  },
+  {
+    "seq": 49,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 91% \u2192 90%",
+    "data": {}
+  },
+  {
+    "seq": 50,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 4,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (3,11) to (4,11)",
+    "data": {}
+  },
+  {
+    "seq": 51,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 90% \u2192 89%",
+    "data": {}
+  },
+  {
+    "seq": 52,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 5,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (4,11) to (5,11)",
+    "data": {}
+  },
+  {
+    "seq": 53,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 89% \u2192 88%",
+    "data": {}
+  },
+  {
+    "seq": 54,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 6,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (5,11) to (6,11)",
+    "data": {}
+  },
+  {
+    "seq": 55,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 88% \u2192 87%",
+    "data": {}
+  },
+  {
+    "seq": 56,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (6,11) to (7,11)",
+    "data": {}
+  },
+  {
+    "seq": 57,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 87% \u2192 86%",
+    "data": {}
+  },
+  {
+    "seq": 58,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 8,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (7,11) to (8,11)",
+    "data": {}
+  },
+  {
+    "seq": 59,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 86% \u2192 85%",
+    "data": {}
+  },
+  {
+    "seq": 60,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 9,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (8,11) to (9,11)",
+    "data": {}
+  },
+  {
+    "seq": 61,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 85% \u2192 84%",
+    "data": {}
+  },
+  {
+    "seq": 62,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 10,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (9,11) to (10,11)",
+    "data": {}
+  },
+  {
+    "seq": 63,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 84% \u2192 83%",
+    "data": {}
+  },
+  {
+    "seq": 64,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 11,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (10,11) to (11,11)",
+    "data": {}
+  },
+  {
+    "seq": 65,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 83% \u2192 82%",
+    "data": {}
+  },
+  {
+    "seq": 66,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 12,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (11,11) to (12,11)",
+    "data": {}
+  },
+  {
+    "seq": 67,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 82% \u2192 81%",
+    "data": {}
+  },
+  {
+    "seq": 68,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 13,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (12,11) to (13,11)",
+    "data": {}
+  },
+  {
+    "seq": 69,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 81% \u2192 80%",
+    "data": {}
+  },
+  {
+    "seq": 70,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 14,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (13,11) to (14,11)",
+    "data": {}
+  },
+  {
+    "seq": 71,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 80% \u2192 79%",
+    "data": {}
+  },
+  {
+    "seq": 72,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 15,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (14,11) to (15,11)",
+    "data": {}
+  },
+  {
+    "seq": 73,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 79% \u2192 78%",
+    "data": {}
+  },
+  {
+    "seq": 74,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 16,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (15,11) to (16,11)",
+    "data": {}
+  },
+  {
+    "seq": 75,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 78% \u2192 77%",
+    "data": {}
+  },
+  {
+    "seq": 76,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 16,
+      "y": 11
+    },
+    "message": "Robo-01 reached Loading-Zone",
+    "data": {}
+  },
+  {
+    "seq": 77,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "DEBUG",
+    "category": "TASK",
+    "event": "TASK_PROGRESS",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 \u2192 DELIVERING: Delivering Box-A",
+    "data": {
+      "progress": 60
+    }
+  },
+  {
+    "seq": 78,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": "box_001",
+    "position": {
+      "x": 16,
+      "y": 11
+    },
+    "message": "Robo-01 started delivering Box-A at Loading-Zone",
+    "data": {}
+  },
+  {
+    "seq": 79,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "BOX",
+    "event": "BOX_DELIVERED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": "box_001",
+    "position": {
+      "x": 16,
+      "y": 11
+    },
+    "message": "Box-A delivered to Loading-Zone (DELIVERING \u2192 DELIVERED)",
+    "data": {}
+  },
+  {
+    "seq": 80,
+    "timestamp": "2026-09-01T18:58:48",
+    "time": "18:58:48",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_COMPLETED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": "box_001",
+    "position": null,
+    "message": "task_001 COMPLETED \u2014 Task completed",
+    "data": {
+      "state": {
+        "task_type": "PICK_AND_DELIVER",
+        "robot": {
+          "id": "robot_01",
+          "name": "Robo-01",
+          "position": {
+            "x": 16,
+            "y": 11
+          },
+          "zone": "loading_zone",
+          "status": "IDLE",
+          "carrying_box": null,
+          "battery": 76.0,
+          "firmware_version": "0.9.0-beta",
+          "allowed_task_types": null
+        },
+        "box": {
+          "id": "box_001",
+          "name": "Box-A",
+          "position": {
+            "x": 16,
+            "y": 11
+          },
+          "zone": "loading_zone",
+          "status": "DELIVERED"
+        },
+        "source_zone": {
+          "key": "shelf_a",
+          "label": "Shelf-A",
+          "occupied": true,
+          "boxes_present": [
+            "box_004"
+          ]
+        },
+        "destination_zone": {
+          "key": "loading_zone",
+          "label": "Loading-Zone",
+          "occupied": true,
+          "boxes_present": [
+            "box_001"
+          ]
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,741 @@
+[
+  {
+    "seq": 1689,
+    "timestamp": "2026-08-18T17:42:01",
+    "time": "17:42:01",
+    "level": "INFO",
+    "category": "USER",
+    "event": "TASK_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": "box_003",
+    "position": null,
+    "message": "task_003 created: PICK_AND_DELIVER \u2014 box_003 \u2192 packing_area",
+    "data": {
+      "priority": "NORMAL",
+      "requested_robot": "robot_01"
+    }
+  },
+  {
+    "seq": 1690,
+    "timestamp": "2026-08-18T17:42:01",
+    "time": "17:42:01",
+    "level": "INFO",
+    "category": "TASK",
+    "event": null,
+    "robot_id": null,
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "task_003 validation started",
+    "data": {}
+  },
+  {
+    "seq": 1691,
+    "timestamp": "2026-08-18T17:42:01",
+    "time": "17:42:01",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_VALIDATED",
+    "robot_id": null,
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "task_003 validated successfully",
+    "data": {}
+  },
+  {
+    "seq": 1692,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "Planning PICK_AND_DELIVER for Robo-01",
+    "data": {}
+  },
+  {
+    "seq": 1693,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": "box_003",
+    "position": null,
+    "message": "Source Box-C found at (15,5)",
+    "data": {}
+  },
+  {
+    "seq": 1694,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "Destination Packing-Area found at (10,11)",
+    "data": {}
+  },
+  {
+    "seq": 1695,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery check passed: 95% available, ~10% required",
+    "data": {}
+  },
+  {
+    "seq": 1696,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "Plan for task_003 contains 5 actions",
+    "data": {
+      "actions": [
+        "Navigate to Box-C",
+        "Pick Box-C",
+        "Carry Box-C to Packing-Area",
+        "Deliver Box-C at Packing-Area",
+        "Complete task"
+      ]
+    }
+  },
+  {
+    "seq": 1697,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "INFO",
+    "category": "BOX",
+    "event": "BOX_RESERVED",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": "box_003",
+    "position": null,
+    "message": "Box-C reserved for task_003 (STORED \u2192 RESERVED)",
+    "data": {}
+  },
+  {
+    "seq": 1698,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_ASSIGNED",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": "box_003",
+    "position": null,
+    "message": "task_003 assigned to Robo-01",
+    "data": {}
+  },
+  {
+    "seq": 1699,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": "TASK_PLANNED",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "task_003 planned: 5 actions",
+    "data": {
+      "actions": [
+        "Navigate to Box-C",
+        "Pick Box-C",
+        "Carry Box-C to Packing-Area",
+        "Deliver Box-C at Packing-Area",
+        "Complete task"
+      ]
+    }
+  },
+  {
+    "seq": 1700,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_STARTED",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "task_003 started",
+    "data": {}
+  },
+  {
+    "seq": 1701,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "INFO",
+    "category": "NAVIGATION",
+    "event": "PATH_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "A* path for Robo-01 \u2192 Box-C: 7 cells",
+    "data": {
+      "cells": 7,
+      "target": {
+        "x": 15,
+        "y": 5
+      }
+    }
+  },
+  {
+    "seq": 1702,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 15,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (16,11) to (15,11)",
+    "data": {}
+  },
+  {
+    "seq": 1703,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 15,
+      "y": 10
+    },
+    "message": "Robo-01 moved from (15,11) to (15,10)",
+    "data": {}
+  },
+  {
+    "seq": 1704,
+    "timestamp": "2026-08-18T17:42:02",
+    "time": "17:42:02",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 95% \u2192 94%",
+    "data": {}
+  },
+  {
+    "seq": 1705,
+    "timestamp": "2026-08-18T17:42:03",
+    "time": "17:42:03",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 15,
+      "y": 9
+    },
+    "message": "Robo-01 moved from (15,10) to (15,9)",
+    "data": {}
+  },
+  {
+    "seq": 1706,
+    "timestamp": "2026-08-18T17:42:03",
+    "time": "17:42:03",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 15,
+      "y": 8
+    },
+    "message": "Robo-01 moved from (15,9) to (15,8)",
+    "data": {}
+  },
+  {
+    "seq": 1707,
+    "timestamp": "2026-08-18T17:42:04",
+    "time": "17:42:04",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 15,
+      "y": 7
+    },
+    "message": "Robo-01 moved from (15,8) to (15,7)",
+    "data": {}
+  },
+  {
+    "seq": 1708,
+    "timestamp": "2026-08-18T17:42:04",
+    "time": "17:42:04",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 15,
+      "y": 6
+    },
+    "message": "Robo-01 moved from (15,7) to (15,6)",
+    "data": {}
+  },
+  {
+    "seq": 1709,
+    "timestamp": "2026-08-18T17:42:05",
+    "time": "17:42:05",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 15,
+      "y": 5
+    },
+    "message": "Robo-01 moved from (15,6) to (15,5)",
+    "data": {}
+  },
+  {
+    "seq": 1710,
+    "timestamp": "2026-08-18T17:42:05",
+    "time": "17:42:05",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 15,
+      "y": 5
+    },
+    "message": "Robo-01 reached Box-C",
+    "data": {}
+  },
+  {
+    "seq": 1711,
+    "timestamp": "2026-08-18T17:42:05",
+    "time": "17:42:05",
+    "level": "DEBUG",
+    "category": "TASK",
+    "event": "TASK_PROGRESS",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "task_003 \u2192 PICKING: Picking Box-C",
+    "data": {
+      "progress": 20
+    }
+  },
+  {
+    "seq": 1712,
+    "timestamp": "2026-08-18T17:42:05",
+    "time": "17:42:05",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": "box_003",
+    "position": {
+      "x": 15,
+      "y": 5
+    },
+    "message": "Robo-01 started picking Box-C (RESERVED \u2192 PICKING)",
+    "data": {}
+  },
+  {
+    "seq": 1713,
+    "timestamp": "2026-08-18T17:42:06",
+    "time": "17:42:06",
+    "level": "INFO",
+    "category": "BOX",
+    "event": "BOX_PICKED",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": "box_003",
+    "position": {
+      "x": 15,
+      "y": 5
+    },
+    "message": "Robo-01 picked Box-C (PICKING \u2192 CARRIED)",
+    "data": {}
+  },
+  {
+    "seq": 1714,
+    "timestamp": "2026-08-18T17:42:06",
+    "time": "17:42:06",
+    "level": "DEBUG",
+    "category": "TASK",
+    "event": "TASK_PROGRESS",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "task_003 \u2192 TRANSPORTING: Carry Box-C to Packing-Area",
+    "data": {
+      "progress": 40
+    }
+  },
+  {
+    "seq": 1715,
+    "timestamp": "2026-08-18T17:42:06",
+    "time": "17:42:06",
+    "level": "INFO",
+    "category": "NAVIGATION",
+    "event": "PATH_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "A* path for Robo-01 \u2192 Packing-Area: 11 cells",
+    "data": {
+      "cells": 11,
+      "target": {
+        "x": 10,
+        "y": 11
+      }
+    }
+  },
+  {
+    "seq": 1716,
+    "timestamp": "2026-08-18T17:42:06",
+    "time": "17:42:06",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 14,
+      "y": 5
+    },
+    "message": "Robo-01 moved from (15,5) to (14,5)",
+    "data": {}
+  },
+  {
+    "seq": 1717,
+    "timestamp": "2026-08-18T17:42:06",
+    "time": "17:42:06",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 93% \u2192 92%",
+    "data": {}
+  },
+  {
+    "seq": 1718,
+    "timestamp": "2026-08-18T17:42:07",
+    "time": "17:42:07",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 13,
+      "y": 5
+    },
+    "message": "Robo-01 moved from (14,5) to (13,5)",
+    "data": {}
+  },
+  {
+    "seq": 1719,
+    "timestamp": "2026-08-18T17:42:07",
+    "time": "17:42:07",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 12,
+      "y": 5
+    },
+    "message": "Robo-01 moved from (13,5) to (12,5)",
+    "data": {}
+  },
+  {
+    "seq": 1720,
+    "timestamp": "2026-08-18T17:42:08",
+    "time": "17:42:08",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 11,
+      "y": 5
+    },
+    "message": "Robo-01 moved from (12,5) to (11,5)",
+    "data": {}
+  },
+  {
+    "seq": 1721,
+    "timestamp": "2026-08-18T17:42:08",
+    "time": "17:42:08",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 10,
+      "y": 5
+    },
+    "message": "Robo-01 moved from (11,5) to (10,5)",
+    "data": {}
+  },
+  {
+    "seq": 1722,
+    "timestamp": "2026-08-18T17:42:09",
+    "time": "17:42:09",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 10,
+      "y": 6
+    },
+    "message": "Robo-01 moved from (10,5) to (10,6)",
+    "data": {}
+  },
+  {
+    "seq": 1723,
+    "timestamp": "2026-08-18T17:42:09",
+    "time": "17:42:09",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 10,
+      "y": 7
+    },
+    "message": "Robo-01 moved from (10,6) to (10,7)",
+    "data": {}
+  },
+  {
+    "seq": 1724,
+    "timestamp": "2026-08-18T17:42:09",
+    "time": "17:42:09",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 92% \u2192 91%",
+    "data": {}
+  },
+  {
+    "seq": 1725,
+    "timestamp": "2026-08-18T17:42:10",
+    "time": "17:42:10",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 10,
+      "y": 8
+    },
+    "message": "Robo-01 moved from (10,7) to (10,8)",
+    "data": {}
+  },
+  {
+    "seq": 1726,
+    "timestamp": "2026-08-18T17:42:10",
+    "time": "17:42:10",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 10,
+      "y": 9
+    },
+    "message": "Robo-01 moved from (10,8) to (10,9)",
+    "data": {}
+  },
+  {
+    "seq": 1727,
+    "timestamp": "2026-08-18T17:42:11",
+    "time": "17:42:11",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 10,
+      "y": 10
+    },
+    "message": "Robo-01 moved from (10,9) to (10,10)",
+    "data": {}
+  },
+  {
+    "seq": 1728,
+    "timestamp": "2026-08-18T17:42:11",
+    "time": "17:42:11",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 10,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (10,10) to (10,11)",
+    "data": {}
+  },
+  {
+    "seq": 1729,
+    "timestamp": "2026-08-18T17:42:11",
+    "time": "17:42:11",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": {
+      "x": 10,
+      "y": 11
+    },
+    "message": "Robo-01 reached Packing-Area",
+    "data": {}
+  },
+  {
+    "seq": 1730,
+    "timestamp": "2026-08-18T17:42:11",
+    "time": "17:42:11",
+    "level": "DEBUG",
+    "category": "TASK",
+    "event": "TASK_PROGRESS",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": null,
+    "position": null,
+    "message": "task_003 \u2192 DELIVERING: Delivering Box-C",
+    "data": {
+      "progress": 60
+    }
+  },
+  {
+    "seq": 1731,
+    "timestamp": "2026-08-18T17:42:11",
+    "time": "17:42:11",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": "box_003",
+    "position": {
+      "x": 10,
+      "y": 11
+    },
+    "message": "Robo-01 started delivering Box-C at Packing-Area",
+    "data": {}
+  },
+  {
+    "seq": 1732,
+    "timestamp": "2026-08-18T17:42:12",
+    "time": "17:42:12",
+    "level": "INFO",
+    "category": "BOX",
+    "event": "BOX_DELIVERED",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": "box_003",
+    "position": {
+      "x": 10,
+      "y": 11
+    },
+    "message": "Box-C delivered to Packing-Area (DELIVERING \u2192 DELIVERED)",
+    "data": {}
+  },
+  {
+    "seq": 1733,
+    "timestamp": "2026-08-18T17:42:12",
+    "time": "17:42:12",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_COMPLETED",
+    "robot_id": "robot_01",
+    "task_id": "task_003",
+    "box_id": "box_003",
+    "position": null,
+    "message": "task_003 COMPLETED \u2014 Task completed",
+    "data": {}
+  }
+]

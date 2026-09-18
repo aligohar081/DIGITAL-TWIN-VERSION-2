@@ -1,0 +1,152 @@
+# Policy-as-code example — copy to policies.yaml at the project root to
+# override the built-in defaults in backend/models.py without touching
+# Python. Loaded once at process start (backend/models.py, bottom of the
+# file) and can be reloaded live with:
+#
+#     curl -X POST http://127.0.0.1:5000/api/policies/reload
+#
+# See GET /api/policies for the values actually in effect right now.
+# Every key below is optional — omit anything you don't want to override.
+
+config:
+  BATTERY_LOW: 20
+  BATTERY_CRITICAL: 8
+  # Turn on live LLM narration for AGENT_REPLAN / AGENT_AUDIT — needs a
+  # Groq API key too (env var GROQ_API_KEY, or evals/.env). See
+  # backend/llm.py. Off by default: a live model call is a narration
+  # layer over real computed data, never a hard dependency.
+  AGENT_LLM_ENABLED: false
+  MAINTENANCE_DISTANCE_THRESHOLD: 150
+  MAINTENANCE_CHARGE_CYCLES_THRESHOLD: 5
+  # 0.0-1.0 — chance a robot fails to avoid another robot it would
+  # otherwise wait/replan/sidestep around, simulating imperfect
+  # real-time sensing. 0.0 (default) = the traffic system's avoidance is
+  # perfect, collisions never happen on their own. Try 0.1-0.3 to
+  # actually see robots collide with each other while working — see
+  # backend/simulator.py::_act_navigate and DigitalTwin.register_collision.
+  COLLISION_RISK: 0.0
+  # 0.0-1.0 — chance a completed delivery's payload silently fails to
+  # actually seat at the destination: no sensor catches it, so the
+  # robot, the event trail (BOX_DELIVERED, TASK_COMPLETED) and the task
+  # lifecycle all still report a clean success. 0.0 (default) = every
+  # completed delivery really landed the box where it belongs. Try
+  # 0.1-0.3 to see the system confidently report success on a task that
+  # didn't actually happen — only caught after the fact by
+  # eval_engine.check_state_transition (python -m backend.run_evals,
+  # GET /api/tasks/{id}/eval, or the promptfoo suite in evals/), never
+  # by anything in the live event trail — see
+  # backend/simulator.py::_act_deliver.
+  FALSE_SUCCESS_RISK: 0.0
+
+approved_firmware_versions:
+  - "2.1.0"
+  - "2.1.1"
+  - "2.2.0"
+
+approved_agent_models:
+  - "groq/gpt-oss-20b"
+  - "groq/gpt-oss-120b"
+
+certification_requirements:
+  HUMAN_INSPECTION: safety_inspection
+  MIXED_MAINTENANCE_MISSION: electrical_safety
+  OPERATOR_APPROVAL: safety_inspection
+  OPERATOR_MAINTENANCE_SIGNOFF: electrical_safety
+
+# IMPORTANT: this key REPLACES the entire built-in class roster if
+# present at all — always include CHARGE_ROBOT in every class's
+# allowed_task_types (or leave allowed_task_types null/unrestricted), or
+# that class's robots can never self-charge and will eventually strand
+# in ERROR (see Simulator._auto_charge / DigitalTwin.request_charge).
+robot_classes:
+  AMR:
+    label: "AMR (general purpose)"
+    speed: 2.0
+    allowed_task_types: null
+  FORKLIFT:
+    label: "Forklift (heavy handling)"
+    speed: 1.2
+    allowed_task_types:
+      - PICK_AND_DELIVER
+      - PICK_BOX
+      - DELIVER_BOX
+      - MOVE_BOX
+      - MOVE_ROBOT
+      - CHARGE_ROBOT
+  SCOUT:
+    label: "Scout (inspection only)"
+    speed: 3.0
+    allowed_task_types:
+      - MOVE_ROBOT
+      - MIXED_MAINTENANCE_MISSION
+      - CHARGE_ROBOT
+  HEAVY_HAULER:
+    label: "Heavy Hauler (slow, high-capacity)"
+    speed: 0.8
+    allowed_task_types:
+      - PICK_AND_DELIVER
+      - PICK_BOX
+      - DELIVER_BOX
+      - MOVE_BOX
+      - MOVE_ROBOT
+      - CHARGE_ROBOT
+      - BATCH_DELIVER
+  DRONE:
+    label: "Drone (fast, aerial/overhead)"
+    speed: 4.0
+    allowed_task_types:
+      - MOVE_ROBOT
+      - MIXED_MAINTENANCE_MISSION
+      - CHARGE_ROBOT
+  PICKER:
+    label: "Picker (fast, pick & deliver only)"
+    speed: 2.5
+    allowed_task_types:
+      - PICK_AND_DELIVER
+      - PICK_BOX
+      - DELIVER_BOX
+      - MOVE_BOX
+      - CHARGE_ROBOT
+
+# Same "replaces the whole roster if present" rule as robot_classes above.
+# No equivalent hard requirement here (there's nothing an operator role
+# can omit that strands them the way skipping CHARGE_ROBOT does for a
+# robot) — certifications/shift hours are just defaults, always
+# overridable per operator afterwards.
+operator_roles:
+  SAFETY_INSPECTOR:
+    label: "Safety Inspector"
+    certifications: [safety_inspection]
+    shift_start_hour: 9
+    shift_end_hour: 17
+  MAINTENANCE_TECH:
+    label: "Maintenance Technician"
+    certifications: [electrical_safety, equipment_maintenance]
+    shift_start_hour: 9
+    shift_end_hour: 17
+  SENIOR_OPERATOR:
+    label: "Senior Operator / Shift Lead"
+    certifications:
+      - safety_inspection
+      - electrical_safety
+      - equipment_maintenance
+      - heavy_equipment
+      - hazmat_handling
+      - quality_control
+    shift_start_hour: null   # always available
+    shift_end_hour: null
+  NIGHT_SHIFT:
+    label: "Night-Shift Operator"
+    certifications: [safety_inspection]
+    shift_start_hour: 22     # wraps past midnight
+    shift_end_hour: 6
+  REMOTE_ONCALL:
+    label: "Remote / On-call Operator"
+    certifications: [safety_inspection, electrical_safety]
+    shift_start_hour: null
+    shift_end_hour: null
+  TRAINEE:
+    label: "Trainee / Probationary Operator"
+    certifications: []       # deliberately none yet
+    shift_start_hour: 9
+    shift_end_hour: 17

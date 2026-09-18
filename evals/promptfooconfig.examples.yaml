@@ -1,0 +1,23 @@
+description: "EVAL-WT-001 Warehouse Task Log Grader (curated example-log regression suite)"
+
+# This suite grades the hand-built demonstration logs in
+# logs/eval_examples/, each of which has a known, hand-labelled correct
+# verdict — one example per failure case the engine knows how to catch.
+# It's a fixed regression fixture, not a report on your system's real
+# runs; for that, see promptfooconfig.yaml (the default suite).
+
+prompts:
+  - |
+    Grade the warehouse task log at {{task_log}} and report its verdict
+    (PASS / WARN / FAIL) with the reasons behind it.
+
+providers:
+  - id: file://./shared/providers/eval_engine_provider.py
+    label: eval-engine
+
+defaultTest:
+  assert:
+    - type: python
+      value: file://./shared/asserts/verdict_matches.py
+
+tests: file://tests.examples.generated.yaml

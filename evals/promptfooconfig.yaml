@@ -1,0 +1,27 @@
+description: "EVAL-WT-000 Warehouse Task Log Grader (live logs from logs/tasks/)"
+
+# This is the default suite: it grades whatever your system has actually
+# produced in logs/tasks/task_*.json — real runs, not curated examples.
+# Regenerate the test list after running new tasks:
+#
+#     python3 evals/generate_tests.py
+#     npx promptfoo eval -c evals/promptfooconfig.yaml
+#
+# For the fixed, hand-labelled regression suite (one example per known
+# failure case) see promptfooconfig.examples.yaml instead.
+
+prompts:
+  - |
+    Grade the warehouse task log at {{task_log}} and report its verdict
+    (PASS / WARN / FAIL) with the reasons behind it.
+
+providers:
+  - id: file://./shared/providers/eval_engine_provider.py
+    label: eval-engine
+
+defaultTest:
+  assert:
+    - type: python
+      value: file://./shared/asserts/no_regressions.py
+
+tests: file://tests.generated.yaml

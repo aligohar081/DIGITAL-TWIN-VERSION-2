@@ -1,0 +1,213 @@
+[
+  {
+    "seq": 13,
+    "timestamp": "2026-09-01T18:58:47",
+    "time": "18:58:47",
+    "level": "INFO",
+    "category": "USER",
+    "event": "TASK_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 created: OPERATOR_MAINTENANCE_SIGNOFF \u2014 maintenance sign-off robot_01",
+    "data": {
+      "priority": "NORMAL",
+      "requested_robot": "robot_01",
+      "requested_agent": "AUTO",
+      "requested_operator": "operator_001",
+      "required_certification": "electrical_safety",
+      "task_type": "OPERATOR_MAINTENANCE_SIGNOFF",
+      "box_id": null,
+      "box_ids": [],
+      "source": null,
+      "destination": null,
+      "summary": "maintenance sign-off robot_01"
+    }
+  },
+  {
+    "seq": 14,
+    "timestamp": "2026-09-01T18:58:47",
+    "time": "18:58:47",
+    "level": "INFO",
+    "category": "TASK",
+    "event": null,
+    "robot_id": null,
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 validation started",
+    "data": {}
+  },
+  {
+    "seq": 15,
+    "timestamp": "2026-09-01T18:58:47",
+    "time": "18:58:47",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_VALIDATED",
+    "robot_id": null,
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 validated successfully",
+    "data": {}
+  },
+  {
+    "seq": 16,
+    "timestamp": "2026-09-01T18:58:47",
+    "time": "18:58:47",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_STARTED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 started",
+    "data": {
+      "state": {
+        "task_type": "OPERATOR_MAINTENANCE_SIGNOFF",
+        "robot": {
+          "id": "robot_01",
+          "name": "Robo-01",
+          "position": {
+            "x": 3,
+            "y": 8
+          },
+          "zone": null,
+          "status": "IDLE",
+          "carrying_box": null,
+          "battery": 100.0,
+          "firmware_version": "2.1.0",
+          "allowed_task_types": null
+        },
+        "operator": {
+          "id": "operator_001",
+          "name": "Sam",
+          "certifications": [
+            "safety_inspection",
+            "electrical_safety"
+          ],
+          "status": "AVAILABLE"
+        },
+        "second_operator": {
+          "id": "operator_003",
+          "name": "Kim",
+          "certifications": [
+            "safety_inspection"
+          ],
+          "status": "AVAILABLE"
+        },
+        "required_certification": "electrical_safety"
+      }
+    }
+  },
+  {
+    "seq": 17,
+    "timestamp": "2026-09-01T18:58:47",
+    "time": "18:58:47",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "OPERATOR_APPROVED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Sam signed off maintenance on Robo-01 (firmware 2.1.0 is on the approved baseline)",
+    "data": {
+      "operator_id": "operator_001",
+      "certifications": [
+        "safety_inspection",
+        "electrical_safety"
+      ],
+      "robot_id": "robot_01",
+      "firmware_version": "2.1.0"
+    }
+  },
+  {
+    "seq": 18,
+    "timestamp": "2026-09-01T18:58:47",
+    "time": "18:58:47",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "OPERATOR_APPROVED",
+    "robot_id": null,
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Kim co-signed Robo-01 (firmware 2.1.0 is on the approved baseline) (second sign-off)",
+    "data": {
+      "operator_id": "operator_003",
+      "certifications": [
+        "safety_inspection",
+        "electrical_safety"
+      ],
+      "co_signer": true
+    }
+  },
+  {
+    "seq": 19,
+    "timestamp": "2026-09-01T18:58:47",
+    "time": "18:58:47",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": "MAINTENANCE_PERFORMED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 maintenance counters reset by Sam",
+    "data": {}
+  },
+  {
+    "seq": 20,
+    "timestamp": "2026-09-01T18:58:47",
+    "time": "18:58:47",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_COMPLETED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 COMPLETED \u2014 Maintenance sign-off completed",
+    "data": {
+      "state": {
+        "task_type": "OPERATOR_MAINTENANCE_SIGNOFF",
+        "robot": {
+          "id": "robot_01",
+          "name": "Robo-01",
+          "position": {
+            "x": 3,
+            "y": 8
+          },
+          "zone": null,
+          "status": "IDLE",
+          "carrying_box": null,
+          "battery": 100.0,
+          "firmware_version": "2.1.0",
+          "allowed_task_types": null
+        },
+        "operator": {
+          "id": "operator_001",
+          "name": "Sam",
+          "certifications": [
+            "safety_inspection",
+            "electrical_safety"
+          ],
+          "status": "AVAILABLE"
+        },
+        "second_operator": {
+          "id": "operator_003",
+          "name": "Kim",
+          "certifications": [
+            "safety_inspection"
+          ],
+          "status": "AVAILABLE"
+        },
+        "required_certification": "electrical_safety"
+      }
+    }
+  }
+]

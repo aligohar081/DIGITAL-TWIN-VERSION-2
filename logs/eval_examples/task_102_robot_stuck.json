@@ -1,0 +1,550 @@
+[
+  {
+    "seq": 10039,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "USER",
+    "event": "TASK_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": "box_002",
+    "position": null,
+    "message": "task_102 created: PICK_AND_DELIVER \u2014 box_002 \u2192 packing_area",
+    "data": {
+      "priority": "HIGH",
+      "requested_robot": "robot_01"
+    }
+  },
+  {
+    "seq": 10040,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": null,
+    "robot_id": null,
+    "task_id": "task_102",
+    "box_id": null,
+    "position": null,
+    "message": "task_102 validation started",
+    "data": {}
+  },
+  {
+    "seq": 10041,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_VALIDATED",
+    "robot_id": null,
+    "task_id": "task_102",
+    "box_id": null,
+    "position": null,
+    "message": "task_102 validated successfully",
+    "data": {}
+  },
+  {
+    "seq": 10042,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": null,
+    "message": "Planning PICK_AND_DELIVER for Robo-01",
+    "data": {}
+  },
+  {
+    "seq": 10043,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_ASSIGNED",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": "box_002",
+    "position": null,
+    "message": "task_102 assigned to Robo-01",
+    "data": {}
+  },
+  {
+    "seq": 10044,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_STARTED",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": null,
+    "message": "task_102 started",
+    "data": {}
+  },
+  {
+    "seq": 10045,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "NAVIGATION",
+    "event": "PATH_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": null,
+    "message": "A* path for Robo-01 \u2192 Box-B: 9 cells",
+    "data": {
+      "cells": 9,
+      "target": {
+        "x": 6,
+        "y": 5
+      }
+    }
+  },
+  {
+    "seq": 10046,
+    "timestamp": "2026-08-19T09:00:01",
+    "time": "09:00:01",
+    "level": "WARNING",
+    "category": "COLLISION",
+    "event": "COLLISION_AVOIDED",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Potential collision at (7,9): Robo-02 is in the way of Robo-01",
+    "data": {
+      "blocked_by": "Robo-02"
+    }
+  },
+  {
+    "seq": 10047,
+    "timestamp": "2026-08-19T09:00:01",
+    "time": "09:00:01",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10048,
+    "timestamp": "2026-08-19T09:00:02",
+    "time": "09:00:02",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10049,
+    "timestamp": "2026-08-19T09:00:03",
+    "time": "09:00:03",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10050,
+    "timestamp": "2026-08-19T09:00:04",
+    "time": "09:00:04",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10051,
+    "timestamp": "2026-08-19T09:00:05",
+    "time": "09:00:05",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10052,
+    "timestamp": "2026-08-19T09:00:06",
+    "time": "09:00:06",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10053,
+    "timestamp": "2026-08-19T09:00:07",
+    "time": "09:00:07",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10054,
+    "timestamp": "2026-08-19T09:00:08",
+    "time": "09:00:08",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10055,
+    "timestamp": "2026-08-19T09:00:09",
+    "time": "09:00:09",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10056,
+    "timestamp": "2026-08-19T09:00:10",
+    "time": "09:00:10",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10057,
+    "timestamp": "2026-08-19T09:00:11",
+    "time": "09:00:11",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10058,
+    "timestamp": "2026-08-19T09:00:12",
+    "time": "09:00:12",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10059,
+    "timestamp": "2026-08-19T09:00:13",
+    "time": "09:00:13",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10060,
+    "timestamp": "2026-08-19T09:00:14",
+    "time": "09:00:14",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10061,
+    "timestamp": "2026-08-19T09:00:15",
+    "time": "09:00:15",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10062,
+    "timestamp": "2026-08-19T09:00:16",
+    "time": "09:00:16",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10063,
+    "timestamp": "2026-08-19T09:00:17",
+    "time": "09:00:17",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10064,
+    "timestamp": "2026-08-19T09:00:18",
+    "time": "09:00:18",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10065,
+    "timestamp": "2026-08-19T09:00:19",
+    "time": "09:00:19",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10066,
+    "timestamp": "2026-08-19T09:00:20",
+    "time": "09:00:20",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10067,
+    "timestamp": "2026-08-19T09:00:21",
+    "time": "09:00:21",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10068,
+    "timestamp": "2026-08-19T09:00:22",
+    "time": "09:00:22",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10069,
+    "timestamp": "2026-08-19T09:00:23",
+    "time": "09:00:23",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10070,
+    "timestamp": "2026-08-19T09:00:24",
+    "time": "09:00:24",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10071,
+    "timestamp": "2026-08-19T09:00:25",
+    "time": "09:00:25",
+    "level": "WARNING",
+    "category": "ROBOT",
+    "event": "ROBOT_WAITING",
+    "robot_id": "robot_01",
+    "task_id": "task_102",
+    "box_id": null,
+    "position": {
+      "x": 7,
+      "y": 9
+    },
+    "message": "Robo-01 waiting for Robo-02",
+    "data": {}
+  }
+]

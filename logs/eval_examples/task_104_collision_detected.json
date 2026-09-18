@@ -1,0 +1,211 @@
+[
+  {
+    "seq": 10079,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "USER",
+    "event": "TASK_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": "box_001",
+    "position": null,
+    "message": "task_104 created: PICK_AND_DELIVER \u2014 box_001 \u2192 loading_zone",
+    "data": {
+      "priority": "HIGH",
+      "requested_robot": "robot_01"
+    }
+  },
+  {
+    "seq": 10080,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": null,
+    "robot_id": null,
+    "task_id": "task_104",
+    "box_id": null,
+    "position": null,
+    "message": "task_104 validation started",
+    "data": {}
+  },
+  {
+    "seq": 10081,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_VALIDATED",
+    "robot_id": null,
+    "task_id": "task_104",
+    "box_id": null,
+    "position": null,
+    "message": "task_104 validated successfully",
+    "data": {}
+  },
+  {
+    "seq": 10082,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_ASSIGNED",
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": "box_001",
+    "position": null,
+    "message": "task_104 assigned to Robo-01",
+    "data": {}
+  },
+  {
+    "seq": 10083,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_STARTED",
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": null,
+    "position": null,
+    "message": "task_104 started",
+    "data": {}
+  },
+  {
+    "seq": 10084,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "NAVIGATION",
+    "event": "PATH_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": null,
+    "position": null,
+    "message": "A* path for Robo-01 \u2192 Box-A: 3 cells",
+    "data": {
+      "cells": 3,
+      "target": {
+        "x": 3,
+        "y": 5
+      }
+    }
+  },
+  {
+    "seq": 10085,
+    "timestamp": "2026-08-19T09:00:01",
+    "time": "09:00:01",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 7
+    },
+    "message": "Robo-01 moved from (3,8) to (3,7)",
+    "data": {}
+  },
+  {
+    "seq": 10086,
+    "timestamp": "2026-08-19T09:00:02",
+    "time": "09:00:02",
+    "level": "CRITICAL",
+    "category": "COLLISION",
+    "event": "COLLISION_DETECTED",
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 6
+    },
+    "message": "Collision: Robo-01 and Robo-02 both occupy (3,6)",
+    "data": {}
+  },
+  {
+    "seq": 10087,
+    "timestamp": "2026-08-19T09:00:03",
+    "time": "09:00:03",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 5
+    },
+    "message": "Robo-01 reached Box-A",
+    "data": {}
+  },
+  {
+    "seq": 10088,
+    "timestamp": "2026-08-19T09:00:03",
+    "time": "09:00:03",
+    "level": "INFO",
+    "category": "BOX",
+    "event": "BOX_PICKED",
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": "box_001",
+    "position": {
+      "x": 3,
+      "y": 5
+    },
+    "message": "Robo-01 picked Box-A (PICKING \u2192 CARRIED)",
+    "data": {}
+  },
+  {
+    "seq": 10089,
+    "timestamp": "2026-08-19T09:00:07",
+    "time": "09:00:07",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": null,
+    "position": {
+      "x": 16,
+      "y": 11
+    },
+    "message": "Robo-01 reached Loading-Zone",
+    "data": {}
+  },
+  {
+    "seq": 10090,
+    "timestamp": "2026-08-19T09:00:07",
+    "time": "09:00:07",
+    "level": "INFO",
+    "category": "BOX",
+    "event": "BOX_DELIVERED",
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": "box_001",
+    "position": {
+      "x": 16,
+      "y": 11
+    },
+    "message": "Box-A delivered to Loading-Zone (DELIVERING \u2192 DELIVERED)",
+    "data": {}
+  },
+  {
+    "seq": 10091,
+    "timestamp": "2026-08-19T09:00:07",
+    "time": "09:00:07",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_COMPLETED",
+    "robot_id": "robot_01",
+    "task_id": "task_104",
+    "box_id": "box_001",
+    "position": null,
+    "message": "task_104 COMPLETED \u2014 Task completed",
+    "data": {}
+  }
+]

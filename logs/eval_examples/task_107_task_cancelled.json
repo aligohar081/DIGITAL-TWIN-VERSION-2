@@ -1,0 +1,105 @@
+[
+  {
+    "seq": 10099,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "USER",
+    "event": "TASK_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_107",
+    "box_id": "box_002",
+    "position": null,
+    "message": "task_107 created: PICK_AND_DELIVER \u2014 box_002 \u2192 packing_area",
+    "data": {
+      "priority": "NORMAL",
+      "requested_robot": "robot_01"
+    }
+  },
+  {
+    "seq": 10100,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": null,
+    "robot_id": null,
+    "task_id": "task_107",
+    "box_id": null,
+    "position": null,
+    "message": "task_107 validation started",
+    "data": {}
+  },
+  {
+    "seq": 10101,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_VALIDATED",
+    "robot_id": null,
+    "task_id": "task_107",
+    "box_id": null,
+    "position": null,
+    "message": "task_107 validated successfully",
+    "data": {}
+  },
+  {
+    "seq": 10102,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_ASSIGNED",
+    "robot_id": "robot_01",
+    "task_id": "task_107",
+    "box_id": "box_002",
+    "position": null,
+    "message": "task_107 assigned to Robo-01",
+    "data": {}
+  },
+  {
+    "seq": 10103,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_STARTED",
+    "robot_id": "robot_01",
+    "task_id": "task_107",
+    "box_id": null,
+    "position": null,
+    "message": "task_107 started",
+    "data": {}
+  },
+  {
+    "seq": 10104,
+    "timestamp": "2026-08-19T09:00:02",
+    "time": "09:00:02",
+    "level": "DEBUG",
+    "category": "TASK",
+    "event": "TASK_PROGRESS",
+    "robot_id": null,
+    "task_id": "task_107",
+    "box_id": null,
+    "position": null,
+    "message": "task_107 \u2192 PICKING: Picking Box-B",
+    "data": {
+      "progress": 20
+    }
+  },
+  {
+    "seq": 10105,
+    "timestamp": "2026-08-19T09:00:05",
+    "time": "09:00:05",
+    "level": "WARNING",
+    "category": "USER",
+    "event": "TASK_CANCELLED",
+    "robot_id": "robot_01",
+    "task_id": "task_107",
+    "box_id": null,
+    "position": null,
+    "message": "task_107 cancelled by user",
+    "data": {}
+  }
+]

@@ -1,0 +1,166 @@
+description: "EVAL-WT-002 Warehouse Task Log Grader (Groq LLM-as-judge, state-based)"
+
+# Same real task logs as promptfooconfig.yaml, but judged by a Groq-hosted
+# LLM instead of backend/eval_engine.py's rule-based checks. Requires a
+# Groq API key:
+#
+#     export GROQ_API_KEY=gsk_...            # or put it in evals/.env
+#     python3 evals/generate_tests_groq.py
+#     npx promptfoo eval -c evals/promptfooconfig.groq.yaml --env-file evals/.env -j 1
+#     npx promptfoo view
+#
+# The model is given FOUR pieces of evidence, most-important first, and
+# walks through the same three-step review a person would actually do —
+# read the request, sanity-check who/what it's about, THEN judge whether
+# it actually got done:
+#
+#   STEP 1  Review the task           — what was asked for (task_json)
+#   STEP 2  Validate the entities     — are the robot/box/zones involved
+#                                        real, resolved, and actually the
+#                                        ones the task named? (entities_json
+#                                        vs task_json)
+#   STEP 3  Check completion          — given valid entities, did the
+#                                        world end up where the task
+#                                        intended? (state_diff_json,
+#                                        falling back to task_log_json)
+#
+# Each step is a distinct field in the output, not just internal
+# reasoning, so a disagreement is traceable to *which* step failed —
+# entity validity is orthogonal to task completion, and collapsing them
+# into one verdict would hide that. defaultTest.assert checks both that
+# the shape is right (is-json) and that the overall verdict agrees with
+# the deterministic engine for the same log
+# (shared/asserts/groq_matches_engine.py) — a disagreement is flagged,
+# not silently accepted, since either side could be the one that's wrong.
+
+prompts:
+  - |
+    You are a QA grader for an autonomous warehouse robot system.
+    Evaluate this task in three steps, in order, and report all three.
+
+    STEP 1 — Review the task. What was actually asked for?
+
+    {{task_json}}
+
+    STEP 2 — Validate the entities. Are the robot, box, and zones below
+    real, resolved, and actually the ones THE TASK (step 1) named — not
+    missing, not mismatched, not unrelated? A task that names a box
+    should have a resolved box entity with a matching id; a task with a
+    destination should have a resolved destination_zone; requested_robot
+    "AUTO" resolving to a specific real robot id is normal, not a
+    mismatch. A task type that doesn't involve a box (e.g. moving a robot
+    with no box) legitimately has no box entity — that's not invalid.
+
+    {{entities_json}}
+
+    Set entities_check.valid = false only if something the task actually
+    needs is missing or doesn't correspond to what step 1 asked for.
+
+    STEP 3 — Check completion. Only meaningful once step 2's entities are
+    valid. Judge by OUTCOME — the physical state of the world before the
+    task ran versus after — not by whether events merely fired:
+
+    STATE DIFFERENCE (primary evidence — position+status of the robot/box
+    from step 2, and whether the source/destination zones held this box,
+    before the task ran versus after it reached a terminal event):
+
+    {{state_diff_json}}
+
+    LOGS (supporting context for *why* — routine per-tick movement
+    telemetry filtered out; every event shown is meaningful):
+
+    {{task_log_json}}
+
+    If the state difference has real "before"/"after" data: completed =
+    true only if the box actually ended up in its intended destination
+    zone (its "zone" field matches destination_zone.key, and its id
+    appears in destination_zone's boxes_present) — and, for a task that
+    did NOT complete, completed can still be true only if nothing
+    physically moved at all (position and status unchanged). Anything
+    else describing itself as a success while the state disagrees means
+    completed = false.
+
+    If the state difference instead just has a "note" saying no state was
+    recorded, fall back to judging completion from the logs alone: a
+    collision, the battery dying mid-task, a robot stuck with no
+    recovery, a controller error, a box double-booked, or the task never
+    reaching a terminal state means completed = false; a low-battery
+    warning the task still recovered from is completed = true.
+
+    Overall verdict is PASS only if entities_check.valid AND
+    completion_check.completed are both true; otherwise FAIL.
+
+    Respond with ONLY strict JSON, no markdown code fences, no extra
+    text, in exactly this shape:
+    {"task_id": "<task id from the log>", "entities_check": {"valid": true or false, "reason": "<one sentence>"}, "completion_check": {"completed": true or false, "reason": "<one sentence>"}, "verdict": "PASS or FAIL", "reason": "<one clear sentence summarizing the deciding factor>"}
+
+providers:
+  # llama-3.1-8b-instant does not exist on Groq's API for this account —
+  # confirmed four separate times against https://api.groq.com/openai/v1/models
+  # and by an actual 404 from a live eval run ("model_not_found"). Groq has
+  # retired the old Llama 3.x chat models platform-wide; no config change
+  # fixes a model that isn't served. Using the confirmed-available model
+  # instead. If Groq ever restores Llama access (or you use a key that has
+  # it), swap the id back — but reasoning_format below is gpt-oss-specific
+  # and must come out again if you do (llama-3.1-8b-instant isn't a
+  # reasoning model and doesn't take that setting).
+  - id: groq:openai/gpt-oss-20b
+    label: groq-grader
+    config:
+      temperature: 0
+      response_format:
+        type: json_object
+      # gpt-oss is a reasoning model — without this it prefixes the reply
+      # with visible "Thinking: ..." chain-of-thought, which breaks strict
+      # JSON parsing. "hidden" returns only the final answer.
+      reasoning_format: hidden
+
+# Three assertions, each answering a DIFFERENT question — don't collapse
+# them, a disagreement between any two of them is itself the signal:
+#
+#   1. is-json                     Is the reply even well-formed?
+#   2. task_actually_succeeded     Did the task really succeed (ground
+#                                   truth: backend/eval_engine.py) —
+#                                   independent of what Groq said. THIS is
+#                                   what makes the row's own pass/fail
+#                                   glyph track a real outcome instead of
+#                                   grader agreement — see that file's
+#                                   docstring for why it's needed: without
+#                                   it, a task that genuinely failed could
+#                                   still score a fully green row just
+#                                   because Groq correctly *recognized*
+#                                   the failure.
+#   3. groq_matches_engine         Did GROQ'S OWN verdict agree with the
+#                                   engine — i.e. is the grader itself
+#                                   trustworthy? Kept as its own assertion
+#                                   (not folded into #2) so a grader that's
+#                                   wrong in either direction still shows
+#                                   up distinctly from "the task failed".
+defaultTest:
+  assert:
+    - type: is-json
+      value:
+        type: object
+        required: [task_id, entities_check, completion_check, verdict, reason]
+        properties:
+          task_id: { type: string }
+          entities_check:
+            type: object
+            required: [valid, reason]
+            properties:
+              valid: { type: boolean }
+              reason: { type: string }
+          completion_check:
+            type: object
+            required: [completed, reason]
+            properties:
+              completed: { type: boolean }
+              reason: { type: string }
+          verdict: { type: string, enum: [PASS, FAIL] }
+          reason: { type: string }
+    - type: python
+      value: file://./shared/asserts/task_actually_succeeded.py
+    - type: python
+      value: file://./shared/asserts/groq_matches_engine.py
+
+tests: file://tests.groq.generated.yaml

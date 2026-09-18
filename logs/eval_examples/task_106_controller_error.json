@@ -1,0 +1,103 @@
+[
+  {
+    "seq": 10092,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "USER",
+    "event": "TASK_CREATED",
+    "robot_id": "robot_02",
+    "task_id": "task_106",
+    "box_id": null,
+    "position": null,
+    "message": "task_106 created: CHARGE_ROBOT \u2014 robot_02",
+    "data": {
+      "priority": "HIGH",
+      "requested_robot": "robot_02"
+    }
+  },
+  {
+    "seq": 10093,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": null,
+    "robot_id": null,
+    "task_id": "task_106",
+    "box_id": null,
+    "position": null,
+    "message": "task_106 validation started",
+    "data": {}
+  },
+  {
+    "seq": 10094,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_VALIDATED",
+    "robot_id": null,
+    "task_id": "task_106",
+    "box_id": null,
+    "position": null,
+    "message": "task_106 validated successfully",
+    "data": {}
+  },
+  {
+    "seq": 10095,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_ASSIGNED",
+    "robot_id": "robot_02",
+    "task_id": "task_106",
+    "box_id": null,
+    "position": null,
+    "message": "task_106 assigned to Robo-02",
+    "data": {}
+  },
+  {
+    "seq": 10096,
+    "timestamp": "2026-08-19T09:00:00",
+    "time": "09:00:00",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_STARTED",
+    "robot_id": "robot_02",
+    "task_id": "task_106",
+    "box_id": null,
+    "position": null,
+    "message": "task_106 started",
+    "data": {}
+  },
+  {
+    "seq": 10097,
+    "timestamp": "2026-08-19T09:00:01",
+    "time": "09:00:01",
+    "level": "ERROR",
+    "category": "ROBOT",
+    "event": "ROBOT_ERROR",
+    "robot_id": "robot_02",
+    "task_id": "task_106",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-02 controller error: KeyError('charging_station')",
+    "data": {}
+  },
+  {
+    "seq": 10098,
+    "timestamp": "2026-08-19T09:00:01",
+    "time": "09:00:01",
+    "level": "ERROR",
+    "category": "TASK",
+    "event": "TASK_FAILED",
+    "robot_id": "robot_02",
+    "task_id": "task_106",
+    "box_id": null,
+    "position": null,
+    "message": "task_106 FAILED \u2014 Controller error: KeyError('charging_station')",
+    "data": {}
+  }
+]

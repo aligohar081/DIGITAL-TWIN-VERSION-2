@@ -1,0 +1,470 @@
+[
+  {
+    "seq": 12,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "USER",
+    "event": "TASK_CREATED",
+    "robot_id": null,
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 created: MIXED_MAINTENANCE_MISSION \u2014 inspect charging_station (agent + robot + operator)",
+    "data": {
+      "priority": "NORMAL",
+      "requested_robot": "AUTO",
+      "requested_agent": "AUTO",
+      "requested_operator": "operator_001",
+      "required_certification": "electrical_safety",
+      "task_type": "MIXED_MAINTENANCE_MISSION",
+      "box_id": null,
+      "source": null,
+      "destination": "charging_station",
+      "summary": "inspect charging_station (agent + robot + operator)"
+    }
+  },
+  {
+    "seq": 13,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "TASK",
+    "event": null,
+    "robot_id": null,
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 validation started",
+    "data": {}
+  },
+  {
+    "seq": 14,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_VALIDATED",
+    "robot_id": null,
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 validated successfully",
+    "data": {}
+  },
+  {
+    "seq": 15,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "AUTO assignment for task_001 \u2192 Robo-01 (Robo-01=score 4.0, Robo-02=score 17.0)",
+    "data": {
+      "candidates": [
+        {
+          "robot": "Robo-01",
+          "distance": 4,
+          "battery": 100.0,
+          "workload": 0.0,
+          "score": 4.0
+        },
+        {
+          "robot": "Robo-02",
+          "distance": 17,
+          "battery": 100.0,
+          "workload": 0.0,
+          "score": 17.0
+        }
+      ],
+      "target": "Charging-Station"
+    }
+  },
+  {
+    "seq": 16,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Planning MIXED_MAINTENANCE_MISSION for Robo-01",
+    "data": {}
+  },
+  {
+    "seq": 17,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery check passed: 100% available, ~9% required",
+    "data": {}
+  },
+  {
+    "seq": 18,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Plan for task_001 contains 2 actions",
+    "data": {
+      "actions": [
+        "Inspect Charging-Station",
+        "Complete task"
+      ]
+    }
+  },
+  {
+    "seq": 19,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_ASSIGNED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 assigned to Robo-01",
+    "data": {}
+  },
+  {
+    "seq": 20,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "PLANNER",
+    "event": "TASK_PLANNED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 planned: 2 actions",
+    "data": {
+      "actions": [
+        "Inspect Charging-Station",
+        "Complete task"
+      ]
+    }
+  },
+  {
+    "seq": 21,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "AGENT_RECOMMENDATION",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Ada recommends dispatching a robot to inspect charging_station",
+    "data": {
+      "agent_id": "agent_001",
+      "model_version": "groq/gpt-oss-20b"
+    }
+  },
+  {
+    "seq": 22,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_STARTED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 started",
+    "data": {
+      "state": {
+        "robot": {
+          "id": "robot_01",
+          "name": "Robo-01",
+          "position": {
+            "x": 3,
+            "y": 8
+          },
+          "zone": null,
+          "status": "PLANNING",
+          "carrying_box": null,
+          "battery": 100.0,
+          "firmware_version": "2.1.0"
+        },
+        "agent": {
+          "id": "agent_001",
+          "name": "Ada",
+          "model_version": "groq/gpt-oss-20b",
+          "status": "IDLE"
+        },
+        "operator": {
+          "id": "operator_001",
+          "name": "Sam",
+          "certifications": [
+            "safety_inspection",
+            "electrical_safety"
+          ],
+          "status": "AVAILABLE"
+        },
+        "required_certification": "electrical_safety",
+        "destination_zone": {
+          "key": "charging_station",
+          "label": "Charging-Station",
+          "occupied": false,
+          "boxes_present": []
+        }
+      }
+    }
+  },
+  {
+    "seq": 23,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "NAVIGATION",
+    "event": "PATH_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "A* path for Robo-01 \u2192 Charging-Station: 4 cells",
+    "data": {
+      "cells": 4,
+      "target": {
+        "x": 3,
+        "y": 12
+      }
+    }
+  },
+  {
+    "seq": 24,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 9
+    },
+    "message": "Robo-01 moved from (3,8) to (3,9)",
+    "data": {}
+  },
+  {
+    "seq": 25,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 100% \u2192 99%",
+    "data": {}
+  },
+  {
+    "seq": 26,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 10
+    },
+    "message": "Robo-01 moved from (3,9) to (3,10)",
+    "data": {}
+  },
+  {
+    "seq": 27,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 99% \u2192 98%",
+    "data": {}
+  },
+  {
+    "seq": 28,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 11
+    },
+    "message": "Robo-01 moved from (3,10) to (3,11)",
+    "data": {}
+  },
+  {
+    "seq": 29,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 98% \u2192 97%",
+    "data": {}
+  },
+  {
+    "seq": 30,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "DEBUG",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 12
+    },
+    "message": "Robo-01 moved from (3,11) to (3,12)",
+    "data": {}
+  },
+  {
+    "seq": 31,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "DEBUG",
+    "category": "BATTERY",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Robo-01 battery 97% \u2192 96%",
+    "data": {}
+  },
+  {
+    "seq": 32,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "ROBOT",
+    "event": null,
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": {
+      "x": 3,
+      "y": 12
+    },
+    "message": "Robo-01 reached Charging-Station",
+    "data": {}
+  },
+  {
+    "seq": 33,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "OPERATOR_APPROVED",
+    "robot_id": null,
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "Sam approved the inspection outcome",
+    "data": {
+      "operator_id": "operator_001",
+      "certifications": [
+        "safety_inspection",
+        "electrical_safety"
+      ],
+      "required_certification": "electrical_safety"
+    }
+  },
+  {
+    "seq": 34,
+    "timestamp": "2026-08-28T00:37:59",
+    "time": "00:37:59",
+    "level": "INFO",
+    "category": "TASK",
+    "event": "TASK_COMPLETED",
+    "robot_id": "robot_01",
+    "task_id": "task_001",
+    "box_id": null,
+    "position": null,
+    "message": "task_001 COMPLETED \u2014 Task completed",
+    "data": {
+      "state": {
+        "robot": {
+          "id": "robot_01",
+          "name": "Robo-01",
+          "position": {
+            "x": 3,
+            "y": 12
+          },
+          "zone": "charging_station",
+          "status": "IDLE",
+          "carrying_box": null,
+          "battery": 96.0,
+          "firmware_version": "2.1.0"
+        },
+        "agent": {
+          "id": "agent_001",
+          "name": "Ada",
+          "model_version": "groq/gpt-oss-20b",
+          "status": "IDLE"
+        },
+        "operator": {
+          "id": "operator_001",
+          "name": "Sam",
+          "certifications": [
+            "safety_inspection",
+            "electrical_safety"
+          ],
+          "status": "AVAILABLE"
+        },
+        "required_certification": "electrical_safety",
+        "destination_zone": {
+          "key": "charging_station",
+          "label": "Charging-Station",
+          "occupied": false,
+          "boxes_present": []
+        }
+      }
+    }
+  }
+]

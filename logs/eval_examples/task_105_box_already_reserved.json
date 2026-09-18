@@ -1,0 +1,47 @@
+[
+  {
+    "seq": 1777,
+    "timestamp": "2026-08-18T17:43:30",
+    "time": "17:43:30",
+    "level": "INFO",
+    "category": "USER",
+    "event": "TASK_CREATED",
+    "robot_id": "robot_01",
+    "task_id": "task_006",
+    "box_id": "box_005",
+    "position": null,
+    "message": "task_006 created: PICK_AND_DELIVER \u2014 box_005 \u2192 loading_zone",
+    "data": {
+      "priority": "NORMAL",
+      "requested_robot": "robot_01"
+    }
+  },
+  {
+    "seq": 1778,
+    "timestamp": "2026-08-18T17:43:30",
+    "time": "17:43:30",
+    "level": "INFO",
+    "category": "TASK",
+    "event": null,
+    "robot_id": null,
+    "task_id": "task_006",
+    "box_id": null,
+    "position": null,
+    "message": "task_006 validation started",
+    "data": {}
+  },
+  {
+    "seq": 1779,
+    "timestamp": "2026-08-18T17:43:30",
+    "time": "17:43:30",
+    "level": "ERROR",
+    "category": "TASK",
+    "event": "TASK_FAILED",
+    "robot_id": "robot_01",
+    "task_id": "task_006",
+    "box_id": "box_005",
+    "position": null,
+    "message": "task_006 FAILED \u2014 Box-E is already reserved by task_005",
+    "data": {}
+  }
+]

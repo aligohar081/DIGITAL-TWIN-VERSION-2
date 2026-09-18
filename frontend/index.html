@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Warehouse Digital Twin — Autonomous Robot Control Centre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="identity">
+    <span class="tape" aria-hidden="true"></span>
+    <div>
+      <p class="eyebrow">Autonomous robot control centre</p>
+      <h1>Warehouse Digital Twin</h1>
+    </div>
+  </div>
+
+  <div class="readout" id="headerReadout">
+    <div class="readout-item wide">
+      <span class="readout-label">System</span>
+      <span class="readout-value"><i class="lamp" id="statusLamp"></i><b id="simStatus">connecting</b></span>
+    </div>
+    <div class="readout-item"><span class="readout-label">Robots</span><span class="readout-value" id="statRobots">0</span></div>
+    <div class="readout-item"><span class="readout-label">Boxes</span><span class="readout-value" id="statBoxes">0</span></div>
+    <div class="readout-item"><span class="readout-label">Active tasks</span><span class="readout-value" id="statActive">0</span></div>
+    <div class="readout-item"><span class="readout-label">Completed</span><span class="readout-value" id="statCompleted">0</span></div>
+    <div class="readout-item"><span class="readout-label">Collisions</span><span class="readout-value" id="statCollisions">0</span></div>
+    <div class="readout-item"><span class="readout-label">Avg battery</span><span class="readout-value" id="statBattery">&mdash;</span></div>
+    <div class="readout-item"><span class="readout-label">Sim clock</span><span class="readout-value mono" id="statClock">0.0s</span></div>
+  </div>
+
+  <div class="notif-wrap">
+    <button class="notif-bell" id="notifBell" aria-label="Notifications">
+      &#128276;<span class="notif-badge" id="notifBadge" hidden>0</span>
+    </button>
+    <div class="notif-panel" id="notifPanel" hidden>
+      <div class="notif-head">
+        <span>Notifications</span>
+        <button class="btn small" id="notifClearBtn">Clear</button>
+      </div>
+      <ul class="notif-list" id="notifList"><li class="empty">No warnings yet.</li></ul>
+    </div>
+  </div>
+</header>
+
+<main class="shell">
+
+  <!-- left rail -->
+  <aside class="rail rail-left">
+
+    <section class="panel">
+      <h2 class="panel-title">Simulation</h2>
+      <div class="btn-row">
+        <button class="btn primary" data-sim="start">Start</button>
+        <button class="btn" data-sim="pause">Pause</button>
+        <button class="btn" data-sim="stop">Stop</button>
+        <button class="btn" data-sim="reset">Reset</button>
+      </div>
+      <label class="field">
+        <span>Speed</span>
+        <select id="speedSelect"></select>
+      </label>
+      <button class="btn estop" id="estopBtn">Emergency stop</button>
+      <button class="btn ghost" id="resumeBtn" hidden>Resume simulation</button>
+      <div class="btn-row tight">
+        <button class="btn small" data-state="save">Save state</button>
+        <button class="btn small" data-state="load">Load state</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Create task</h2>
+      <form id="taskForm" autocomplete="off">
+        <label class="field">
+          <span>Task type</span>
+          <select name="type" id="taskType"></select>
+        </label>
+        <label class="field">
+          <span>Robot</span>
+          <select name="robot_id" id="taskRobot"></select>
+        </label>
+        <label class="field" data-when="box">
+          <span>Box</span>
+          <select name="box_id" id="taskBox"></select>
+        </label>
+        <label class="field" data-when="box_ids">
+          <span>Boxes (2 or more)</span>
+          <select name="box_ids" id="taskBoxes" multiple size="4"></select>
+        </label>
+        <label class="field" data-when="source">
+          <span>Source</span>
+          <select name="source" id="taskSource"></select>
+        </label>
+        <label class="field" data-when="destination">
+          <span>Destination</span>
+          <select name="destination" id="taskDestination"></select>
+        </label>
+        <label class="field" data-when="priority">
+          <span>Priority</span>
+          <select name="priority" id="taskPriority"></select>
+        </label>
+        <label class="field" data-when="agent">
+          <span>Agent</span>
+          <select name="agent_id" id="taskAgent"></select>
+        </label>
+        <label class="field" data-when="operator">
+          <span>Operator</span>
+          <select name="operator_id" id="taskOperator"></select>
+        </label>
+        <label class="field toggle-field" data-when="operator">
+          <input type="checkbox" name="dual_signoff" id="taskDualSignoff" />
+          <span>Require a second operator's sign-off</span>
+        </label>
+        <label class="field" data-when="operator">
+          <span>Second operator <i>(optional — AUTO if blank)</i></span>
+          <select name="second_operator_id" id="taskSecondOperator"></select>
+        </label>
+        <button class="btn primary block" type="submit">Assign task</button>
+        <p class="form-note" id="taskFormNote" role="status"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Recurring tasks</h2>
+      <form id="scheduleForm" autocomplete="off">
+        <label class="field">
+          <span>Task type</span>
+          <select name="type" id="scheduleType"></select>
+        </label>
+        <label class="field">
+          <span>Every N seconds</span>
+          <input name="interval_seconds" type="number" min="1" step="1" value="30" />
+        </label>
+        <button class="btn block" type="submit">Add schedule</button>
+        <p class="form-note" id="scheduleFormNote" role="status"></p>
+      </form>
+      <ul class="schedule-list" id="scheduleList"><li class="empty">No recurring tasks yet.</li></ul>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Add robot</h2>
+      <form id="robotForm" autocomplete="off">
+        <label class="field"><span>Name</span><input name="name" placeholder="Robo-03" /></label>
+        <label class="field">
+          <span>Class</span>
+          <select name="robot_class" id="robotClass"></select>
+        </label>
+        <div class="field-row">
+          <label class="field"><span>Speed <i>(blank = class default)</i></span><input name="speed" type="number" step="0.5" min="0.5" placeholder="auto" /></label>
+          <label class="field"><span>Start X</span><input name="x" type="number" min="0" value="8" /></label>
+          <label class="field"><span>Start Y</span><input name="y" type="number" min="0" value="7" /></label>
+        </div>
+        <button class="btn block" type="submit">Add robot</button>
+        <p class="form-note" id="robotFormNote" role="status"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Add box</h2>
+      <form id="boxForm" autocomplete="off">
+        <label class="field"><span>Name</span><input name="name" placeholder="Box-F" /></label>
+        <div class="field-row">
+          <label class="field"><span>Weight kg</span><input name="weight" type="number" step="0.5" min="0" value="5" /></label>
+          <label class="field"><span>X</span><input name="x" type="number" min="0" value="10" /></label>
+          <label class="field"><span>Y</span><input name="y" type="number" min="0" value="5" /></label>
+        </div>
+        <label class="field"><span>Destination</span><select name="destination" id="boxDestination"></select></label>
+        <button class="btn block" type="submit">Add box</button>
+        <p class="form-note" id="boxFormNote" role="status"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Add agent</h2>
+      <form id="agentForm" autocomplete="off">
+        <label class="field"><span>Name</span><input name="name" placeholder="Ada" /></label>
+        <label class="field"><span>Model version</span><input name="model_version" placeholder="groq/gpt-oss-20b" /></label>
+        <button class="btn block" type="submit">Add agent</button>
+        <p class="form-note" id="agentFormNote" role="status"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Add operator</h2>
+      <form id="operatorForm" autocomplete="off">
+        <label class="field"><span>Name</span><input name="name" placeholder="Sam" /></label>
+        <label class="field">
+          <span>Role <i>(fills in certifications + shift below — still editable)</i></span>
+          <select name="role" id="operatorRole"></select>
+        </label>
+        <label class="field">
+          <span>Certifications <i>(blank = role default)</i></span>
+          <input name="certifications" list="knownCertifications" placeholder="e.g. safety_inspection, electrical_safety" />
+          <datalist id="knownCertifications"></datalist>
+        </label>
+        <div class="field-row">
+          <label class="field"><span>Shift start <i>(blank = role default)</i></span><input name="shift_start_hour" type="number" min="0" max="23" placeholder="e.g. 9" /></label>
+          <label class="field"><span>Shift end <i>(blank = role default)</i></span><input name="shift_end_hour" type="number" min="0" max="23" placeholder="e.g. 17" /></label>
+        </div>
+        <button class="btn block" type="submit">Add operator</button>
+        <p class="form-note" id="operatorFormNote" role="status"></p>
+      </form>
+    </section>
+
+  </aside>
+
+  <!-- centre stage -->
+  <section class="stage">
+
+    <div class="panel map-panel">
+      <div class="map-head">
+        <h2 class="panel-title">Warehouse floor</h2>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="floor" role="img" aria-label="Live warehouse floor plan with robot positions"></canvas>
+      </div>
+      <p class="map-foot">
+        Positions, routes and box states stream from the backend digital twin &mdash;
+        the map only draws what the simulation reports.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">Tasks <span class="count" id="taskCount"></span></h2>
+      <div class="task-board" id="taskBoard"></div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">Robots</h2>
+      <div class="robot-grid" id="robotGrid"></div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">Fleet load</h2>
+      <p class="map-foot">Active + queued work per robot, so it's obvious at a glance who's overworked vs idle.</p>
+      <div class="fleet-load" id="fleetLoad"></div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">Boxes</h2>
+      <div class="table-wrap">
+        <table class="data-table" id="boxTable">
+          <thead><tr><th>Box</th><th>Status</th><th>Position</th><th>Weight</th><th>Destination</th><th>Held by</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">Agents</h2>
+      <p class="map-foot">The AI-agent actor class — see TRUST_LAYER.md. Assigned via AGENT_INSPECTION / MIXED_MAINTENANCE_MISSION.</p>
+      <div class="table-wrap">
+        <table class="data-table" id="agentTable">
+          <thead><tr><th>Agent</th><th>Status</th><th>Model version</th><th>Tasks</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">Operators</h2>
+      <p class="map-foot">The human actor class. Assigned via HUMAN_INSPECTION / MIXED_MAINTENANCE_MISSION — check the eval report for whether they actually held the required certification.</p>
+      <div class="table-wrap">
+        <table class="data-table" id="operatorTable">
+          <thead><tr><th>Operator</th><th>Role</th><th>Status</th><th>Certifications</th><th>Shift</th><th>Tasks</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">Decision history search</h2>
+      <p class="map-foot">Search every graded task ever logged — who was involved, what actually happened, and whether it was trustworthy.</p>
+      <form id="decisionForm" class="decision-form" autocomplete="off">
+        <div class="field-row">
+          <label class="field"><span>Robot</span><input name="robot" id="decisionRobot" placeholder="Robo-01" /></label>
+          <label class="field"><span>Agent</span><input name="agent" id="decisionAgent" placeholder="Ada" /></label>
+          <label class="field"><span>Operator</span><input name="operator" id="decisionOperator" placeholder="Sam" /></label>
+        </div>
+        <div class="field-row">
+          <label class="field">
+            <span>Task type</span>
+            <select name="type" id="decisionType"><option value="">Any</option></select>
+          </label>
+          <label class="field">
+            <span>Verdict</span>
+            <select name="verdict" id="decisionVerdict">
+              <option value="">Any</option>
+              <option value="PASS">PASS</option>
+              <option value="WARN">WARN</option>
+              <option value="FAIL">FAIL</option>
+            </select>
+          </label>
+          <label class="field"><span>Battery below %</span><input name="battery_below" id="decisionBatteryBelow" type="number" min="0" max="100" placeholder="e.g. 20" /></label>
+        </div>
+        <button class="btn block" type="submit">Search</button>
+      </form>
+      <div class="table-wrap">
+        <table class="data-table" id="decisionTable">
+          <thead><tr><th>Task</th><th>Type</th><th>Verdict</th><th>Robot</th><th>Agent</th><th>Operator</th><th>Summary</th></tr></thead>
+          <tbody><tr><td colspan="7" class="empty">Run a search above.</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- right rail -->
+  <aside class="rail rail-right">
+
+    <section class="panel">
+      <h2 class="panel-title">Warehouse statistics</h2>
+      <div class="stat-grid" id="statGrid"></div>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Trends</h2>
+      <div class="trend-grid" id="trendGrid"></div>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Mission report</h2>
+      <p class="map-foot">Every logged task, graded and exported — the Mission Authorization Record for this warehouse.</p>
+      <div class="btn-row">
+        <a class="btn small" href="/api/reports/missions.csv">Download .csv</a>
+        <a class="btn small" href="/api/reports/missions.html" target="_blank" rel="noopener">Open printable report</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Policies <span class="count" id="policySource"></span></h2>
+      <p class="map-foot">The trust-layer values actually in effect right now — see <code>policies.yaml</code>.</p>
+      <label class="field toggle-field">
+        <input type="checkbox" id="policyLlmToggle" />
+        <span>Live AI narration for agent tasks <i>(needs a Groq API key)</i></span>
+      </label>
+      <label class="field">
+        <span>Collision risk <i>(robots fail to avoid each other while working)</i></span>
+        <div class="field-row">
+          <input type="range" id="collisionRiskSlider" min="0" max="100" step="5" value="0" />
+          <span class="mono" id="collisionRiskValue" style="flex:0 0 40px;text-align:right;">0%</span>
+        </div>
+      </label>
+      <label class="field">
+        <span>False success risk <i>(a delivery silently fails but still reports success — only the eval engine catches it)</i></span>
+        <div class="field-row">
+          <input type="range" id="falseSuccessRiskSlider" min="0" max="100" step="5" value="0" />
+          <span class="mono" id="falseSuccessRiskValue" style="flex:0 0 40px;text-align:right;">0%</span>
+        </div>
+      </label>
+      <dl class="kv" id="policyKv"></dl>
+      <button class="btn small block" id="policyReloadBtn">Reload policies.yaml</button>
+      <p class="form-note" id="policyFormNote" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Mock CI pipeline</h2>
+      <div class="ci-head">
+        <span class="ci-status" id="ciStatus">not run</span>
+        <button class="btn small" id="ciRunBtn">Run CI</button>
+      </div>
+      <ul class="ci-list" id="ciList"><li class="empty">Run the pipeline to validate the digital twin.</li></ul>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Event timeline <span class="count" id="timelineTask"></span></h2>
+      <ol class="timeline" id="timeline"><li class="empty">Select a task to trace its execution.</li></ol>
+    </section>
+
+    <section class="panel logs-panel">
+      <h2 class="panel-title">Live system logs</h2>
+      <div class="log-filters">
+        <input id="logSearch" type="search" placeholder="Search messages" />
+        <div class="filter-row">
+          <select id="logLevel"><option value="">All levels</option></select>
+          <select id="logCategory"><option value="">All categories</option></select>
+        </div>
+        <div class="filter-row">
+          <select id="logRobot"><option value="">All robots</option></select>
+          <select id="logTask"><option value="">All tasks</option></select>
+        </div>
+        <div class="filter-row">
+          <label class="toggle"><input type="checkbox" id="logAutoscroll" checked /><span>Auto-scroll</span></label>
+          <button class="btn small" id="logClearBtn">Clear</button>
+          <button class="btn small" id="logExportTxt">.txt</button>
+          <button class="btn small" id="logExportJson">.json</button>
+        </div>
+      </div>
+      <div class="log-stream" id="logStream" role="log" aria-live="polite"></div>
+    </section>
+
+  </aside>
+</main>
+
+<div class="modal" id="taskModal" hidden>
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Close">&#10005;</button>
+    <h3 id="modalTitle">Task</h3>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<!-- Chat agent — a real tool-use loop (backend/agent_chat.py), not the
+     one-shot narration used elsewhere in the dashboard. Give it a plain
+     instruction ("move Box-A to loading zone") or ask it a question
+     ("why did task_042 fail?") — it calls the same backend the rest of
+     this dashboard does. -->
+<button class="chat-launcher" id="chatLauncher" aria-label="Open AI chat agent">
+  &#129302;<span class="chat-launcher-badge" id="chatLauncherBadge" hidden></span>
+</button>
+<div class="chat-panel" id="chatPanel" hidden>
+  <div class="chat-head">
+    <span>Warehouse AI</span>
+    <button class="modal-close" id="chatCloseBtn" aria-label="Close">&#10005;</button>
+  </div>
+  <p class="chat-sub">Type a command ("move Box-A to loading zone, then charge Robo-02") or ask a question ("why did task_003 fail?").</p>
+  <div class="chat-log" id="chatLog"></div>
+  <form id="chatForm" autocomplete="off">
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Tell the warehouse what to do…" autocomplete="off" />
+      <button class="btn primary small" type="submit" id="chatSendBtn">Send</button>
+    </div>
+  </form>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
