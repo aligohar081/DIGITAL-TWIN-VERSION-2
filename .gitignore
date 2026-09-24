@@ -6,3 +6,4 @@ logs/events.json
 data/warehouse_state.json
 .pytest_cache/
 evals/.env
+.env

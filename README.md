@@ -46,7 +46,8 @@ Everything is visible on the dashboard while it happens.
 | Eval Engine | Eight checks graded against a finished task's own JSON log — PASS/WARN/FAIL with plain-language reasons, CLI + HTTP |
 | Realtime | Server-Sent Events; no polling, no page refreshes |
 | Persistence | Save / load / reset the whole twin as JSON |
-| Tests | 253 pytest tests driving the simulation deterministically |
+| Integrations | Optional Carbon (carbon.ms) MES bridge — inbound job → task webhook, outbound eval verdict callback |
+| Tests | 276 pytest tests driving the simulation deterministically |
 
 ---
 
@@ -1051,6 +1052,90 @@ same Mission Authorization Record data (`decision_graph.query_decisions`
 with no filters) as a downloadable spreadsheet or a clean printable page
 (open it and use the browser's own Print → Save as PDF — no server-side
 PDF library added, keeping dependencies to Flask, pytest and PyYAML).
+
+### Carbon (carbon.ms) MES integration
+
+`backend/carbon_client.py` — an optional bridge to
+[Carbon](https://github.com/crbnos/carbon), an open-source manufacturing
+ERP/MES/QMS, used here as an external task source and quality
+system-of-record. Off by default (`CONFIG["CARBON_ENABLED"]`, see
+`policies.example.yaml`), and each direction degrades independently.
+Grounded in Carbon's real public source, not just its marketing page —
+see the module docstring in `carbon_client.py` for the specific files
+this was read from:
+
+- **Inbound** — `POST /api/integrations/carbon/webhook` accepts a
+  payload built from Carbon's real `jobOperation` fields
+  (`jobOperationId`, `jobId`, `operationType`, ...), maps it onto a
+  normal `TaskManager.create_task()` call via `carbon_client.
+  map_job_to_task_payload()`, and tags the resulting task with
+  `external_ref = {"source": "carbon", "job_operation_id", "job_id",
+  "operation_type"}`. It goes through the **exact same pre-execution
+  eligibility gate** as any other task — Carbon doesn't get a side door.
+  Carbon's own `operationType` enum (`Process`/`Assembly`/`Inspection`/
+  `Outside Processing`) is a manufacturing-step category, not a
+  warehouse-logistics one — `JOB_TYPE_MAP` maps each to the *material-
+  handling* task this twin's robots should run around that operation
+  (e.g. staging material at the work center before a `Process` step
+  starts), not the operation itself, which Carbon/MES still owns.
+  Every request must carry a matching `X-Carbon-Webhook-Secret` header
+  (a plain shared secret, checked in constant time — **not** an HMAC
+  signature: Carbon's outbound webhook is a no-code workflow action
+  whose author types the URL/headers/body by hand, so there's no step
+  in Carbon that could compute a signature over the body for you).
+  With no secret configured the endpoint refuses every request (`503`)
+  rather than accepting unauthenticated task creation — it fails
+  closed, not open.
+- **Outbound** — once a Carbon-originated task reaches a terminal state
+  (`TASK_COMPLETED`/`TASK_FAILED`), an event subscriber registered in
+  `create_app()` grades it with the same `eval_engine.evaluate_events()`
+  every other task is graded with, and posts that verdict back to
+  Carbon in a background thread (`carbon_client.report_verdict()`) —
+  never on the request/simulation-tick thread — using Carbon's real API
+  v1 shape (`POST {base}/api/v1/{module}/{operation}`, `Authorization:
+  Bearer crbn_...`). PASS/WARN calls `production.
+  updateJobOperationStatus` (marks the job operation `"Done"`); FAIL
+  calls `quality.insertIssue` — what Carbon's own marketing calls
+  NCR/CAPA is internally the "Issue" domain — linked back via
+  `jobOperationId`, with the eval report's failure reasons as the
+  description. Requires `CARBON_API_KEY` + `CARBON_BASE_URL` (and, for
+  the FAIL path, `CARBON_DEFAULT_LOCATION_ID` + `CARBON_DEFAULT_NC_
+  TYPE_ID` — real ids from your own tenant's Quality settings that
+  nothing in a public checkout can guess; without them a FAIL verdict
+  is skipped rather than sent malformed). On any failure (feature off,
+  no credentials, network error) this quietly returns `False` — a
+  verdict callback is a report, never a gate, the same rule
+  `backend/llm.py` follows for its narration.
+
+Credentials live in `CARBON_API_KEY` / `CARBON_BASE_URL` /
+`CARBON_WEBHOOK_SECRET` / `CARBON_DEFAULT_LOCATION_ID` / `CARBON_
+DEFAULT_NC_TYPE_ID` (env vars, or a gitignored root-level `.env` — same
+pattern as `evals/.env` for `GROQ_API_KEY`). `GET
+/api/integrations/carbon/status` reports what's currently configured
+without leaking the secrets themselves.
+
+Before pointing this at a real tenant, confirm the exact request body
+shape for `updateJobOperationStatus` / `insertIssue` against your own
+instance's live `GET /api/v1/openapi.json` — that endpoint is generated
+from the same manifest Carbon's server dispatches against, so it's more
+authoritative than anything read out of the repo.
+
+**Verified against a real self-hosted Carbon instance** (open-source
+checkout, local Docker stack, a real `crbn_...` API key — not just read
+from source): the inbound webhook → task → eligibility gate → robot
+execution path works end-to-end, and the FAIL path really does file a
+live Issue/NCR in Carbon's Quality module. One known limitation found
+during that testing: `production.updateJobOperationStatus` (the PASS
+path) currently fails against a self-hosted instance with `insert or
+update on table "jobOperation" violates foreign key constraint
+"jobOperation_updatedBy_fkey"` — Carbon's own API-key auth context
+appears to pass a non-existent id as `updatedBy` for this specific
+write (the same auth context works fine for `quality.insertIssue`'s
+`createdBy`). This looks like a bug in Carbon's own dispatch/context
+wiring, not in this project's request — the request body was confirmed
+byte-for-byte correct against the live `openapi.json` schema. Filed here
+as a known caveat rather than worked around; the FAIL/assurance path
+(arguably the half that matters most) is unaffected.
 
 ---
 

@@ -1,0 +1,30 @@
+Open 3 browser tabs:
+
+http://localhost:5000 
+the warehouse dashboard
+
+http://localhost:3000/x 
+Carbon home
+
+http://localhost:3000/x/quality/issues 
+Carbon's Issues list
+
+
+Task: 01 (PASS)
+
+curl -X POST http://localhost:5000/api/integrations/carbon/webhook \
+  -H "Content-Type: application/json" \
+  -H "X-Carbon-Webhook-Secret: wdt-carbon-dev-secret-2026" \
+  -d '{"id":"jo_DCNFnV6vWcndbccJnXEgTe","jobId":"job_WtSmbaQ21MgeJ6VJji7rAe","operationType":"Process","itemId":"Box-A","workCenterId":"packing_area"}'
+
+
+
+Task 02 : (FAIL)
+
+curl -X POST http://localhost:5000/api/integrations/carbon/webhook \
+  -H "Content-Type: application/json" -H "X-Carbon-Webhook-Secret: wdt-carbon-dev-secret-2026" \
+  -d '{"id":"jo_demo_fail_a","jobId":"job_demo_fail_a","operationType":"Process","itemId":"Box-B","workCenterId":"packing_area"}'
+
+curl -X POST http://localhost:5000/api/integrations/carbon/webhook \
+  -H "Content-Type: application/json" -H "X-Carbon-Webhook-Secret: wdt-carbon-dev-secret-2026" \
+  -d '{"id":"jo_demo_fail_b","jobId":"job_demo_fail_b","operationType":"Process","itemId":"Box-B","workCenterId":"packing_area"}'

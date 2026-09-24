@@ -7,12 +7,14 @@ import io
 import json
 import os
 import queue
+import threading
 import time
 from typing import Any, Dict, Optional, Tuple
 
 from flask import Flask, Response, jsonify, request, send_from_directory
 
 from .agent_chat import ChatError, run_chat
+from . import carbon_client
 from .ci_engine import CIEngine
 from .decision_graph import flatten_record, query_decisions
 from .digital_twin import DigitalTwin
@@ -90,6 +92,30 @@ def create_app(
 
     twin.logger.add_sink(lambda record: broadcaster.publish("log", record))
     twin.events.subscribe(lambda event: broadcaster.publish("event", event))
+
+    def _carbon_verdict_subscriber(event: Dict[str, Any]) -> None:
+        """Once a Carbon-originated task (see carbon_webhook() below)
+        reaches a terminal state, grade it and post the verdict back to
+        Carbon — see backend/carbon_client.py. A plain no-op for every
+        other task (the vast majority)."""
+        if event.get("event") not in ("TASK_COMPLETED", "TASK_FAILED"):
+            return
+        if not carbon_client.enabled():
+            return
+        task_id = event.get("task_id")
+        task = twin.tasks.get(task_id) if task_id else None
+        external_ref = getattr(task, "external_ref", None) if task is not None else None
+        if not external_ref or external_ref.get("source") != "carbon":
+            return
+
+        def _post() -> None:
+            events_log = twin.logger.get_task_logs(task_id)
+            report = evaluate_events(events_log, task_id=task_id)
+            carbon_client.report_verdict(external_ref, report.to_dict())
+
+        threading.Thread(target=_post, daemon=True).start()
+
+    twin.events.subscribe(_carbon_verdict_subscriber)
 
     if autostart:
         simulator.start()
@@ -643,6 +669,39 @@ def create_app(
             f"False-success risk set to {risk:.0%} (in-memory, not saved to policies.yaml)",
         )
         return jsonify({"ok": True, "risk": CONFIG["FALSE_SUCCESS_RISK"]})
+
+    # ------------------------------------------------------------------ #
+    # Carbon (carbon.ms) MES integration (backend/carbon_client.py) —
+    # optional in both directions. Inbound: Carbon posts a job/traveler
+    # step here and it becomes a normal task, gated by the exact same
+    # eligibility checks as any other task. Outbound: see the
+    # _carbon_verdict_subscriber registered above.
+    # ------------------------------------------------------------------ #
+    @app.get("/api/integrations/carbon/status")
+    def carbon_status():
+        return jsonify({
+            "enabled": bool(CONFIG.get("CARBON_ENABLED")),
+            "outbound_configured": carbon_client.enabled(),
+            "inbound_configured": carbon_client.webhook_configured(),
+            "base_url": carbon_client.find_base_url(),
+        })
+
+    @app.post("/api/integrations/carbon/webhook")
+    @guarded
+    def carbon_webhook():
+        if not carbon_client.webhook_configured():
+            raise ApiError("Carbon integration is not configured", status=503)
+        secret_header = request.headers.get("X-Carbon-Webhook-Secret")
+        if not carbon_client.verify_webhook_secret(secret_header):
+            raise ApiError("Invalid or missing webhook secret", status=401)
+        job = _payload()
+        try:
+            payload = carbon_client.map_job_to_task_payload(job)
+        except ValueError as exc:
+            raise ApiError(str(exc), field="operationType")
+        task = twin.tasks.create_task(payload)
+        status = 201 if task.status.value != "FAILED" else 422
+        return jsonify({"ok": status == 201, "task": task.to_dict(), "error": task.error}), status
 
     # ------------------------------------------------------------------ #
     # Mission reports (backend/eval_engine.py's Mission Authorization Record)

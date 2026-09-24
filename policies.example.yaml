@@ -16,6 +16,13 @@ config:
   # backend/llm.py. Off by default: a live model call is a narration
   # layer over real computed data, never a hard dependency.
   AGENT_LLM_ENABLED: false
+  # Turn on the Carbon (carbon.ms) MES integration — needs credentials
+  # too (env vars CARBON_API_KEY / CARBON_BASE_URL / CARBON_WEBHOOK_
+  # SECRET / CARBON_DEFAULT_LOCATION_ID / CARBON_DEFAULT_NC_TYPE_ID, or a
+  # root-level .env). See backend/carbon_client.py. Off by default: with
+  # no credentials configured, the inbound webhook refuses every request
+  # and no verdict is ever posted out.
+  CARBON_ENABLED: false
   MAINTENANCE_DISTANCE_THRESHOLD: 150
   MAINTENANCE_CHARGE_CYCLES_THRESHOLD: 5
   # 0.0-1.0 — chance a robot fails to avoid another robot it would

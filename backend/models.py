@@ -43,6 +43,12 @@ CONFIG: Dict[str, Any] = {
     # wording. Any failure (no key, network, timeout) falls back to the
     # computed wording either way, so this is purely a narration layer.
     "AGENT_LLM_ENABLED": False,
+    # Off by default — see backend/carbon_client.py. When True (and
+    # credentials are configured), Carbon-originated tasks are accepted
+    # over the inbound webhook and terminal verdicts are posted back to
+    # Carbon; otherwise both directions are inert regardless of
+    # credentials.
+    "CARBON_ENABLED": False,
     # Predictive maintenance (see backend/maintenance.py): a robot is
     # flagged once it's travelled this many cells, or completed this many
     # charge cycles, since its last OPERATOR_MAINTENANCE_SIGNOFF.

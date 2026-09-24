@@ -241,6 +241,342 @@
           "robot_id": "robot_01",
           "box_id": "box_001",
           "message": "task_001 COMPLETED — Task completed"
+        },
+        {
+          "seq": 14880,
+          "event": "TASK_CREATED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "task_001 created: PICK_AND_DELIVER — box_001 → loading_zone"
+        },
+        {
+          "seq": 14882,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_001",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_001 validated successfully"
+        },
+        {
+          "seq": 14893,
+          "event": "BOX_RESERVED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "Box-A reserved for task_001 (STORED → RESERVED)"
+        },
+        {
+          "seq": 14894,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "task_001 assigned to Robo-01"
+        },
+        {
+          "seq": 14895,
+          "event": "TASK_PLANNED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 planned: 5 actions"
+        },
+        {
+          "seq": 14904,
+          "event": "TASK_STARTED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 started"
+        },
+        {
+          "seq": 14905,
+          "event": "PATH_CREATED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Box-A: 3 cells"
+        },
+        {
+          "seq": 14921,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 → PICKING: Picking Box-A"
+        },
+        {
+          "seq": 14925,
+          "event": "BOX_PICKED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "Robo-01 picked Box-A (PICKING → CARRIED)"
+        },
+        {
+          "seq": 14926,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 → TRANSPORTING: Carry Box-A to Loading-Zone"
+        },
+        {
+          "seq": 14927,
+          "event": "PATH_CREATED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Loading-Zone: 19 cells"
+        },
+        {
+          "seq": 15005,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 → DELIVERING: Delivering Box-A"
+        },
+        {
+          "seq": 15007,
+          "event": "BOX_DELIVERED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "Box-A delivered to Loading-Zone (DELIVERING → DELIVERED)"
+        },
+        {
+          "seq": 15008,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "task_001 COMPLETED — Task completed"
+        },
+        {
+          "seq": 15020,
+          "event": "TASK_CREATED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "task_001 created: PICK_AND_DELIVER — box_001 → loading_zone"
+        },
+        {
+          "seq": 15022,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_001",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_001 validated successfully"
+        },
+        {
+          "seq": 15033,
+          "event": "BOX_RESERVED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "Box-A reserved for task_001 (STORED → RESERVED)"
+        },
+        {
+          "seq": 15034,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "task_001 assigned to Robo-01"
+        },
+        {
+          "seq": 15035,
+          "event": "TASK_PLANNED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 planned: 5 actions"
+        },
+        {
+          "seq": 15044,
+          "event": "TASK_STARTED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 started"
+        },
+        {
+          "seq": 15045,
+          "event": "PATH_CREATED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Box-A: 3 cells"
+        },
+        {
+          "seq": 15061,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 → PICKING: Picking Box-A"
+        },
+        {
+          "seq": 15065,
+          "event": "BOX_PICKED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "Robo-01 picked Box-A (PICKING → CARRIED)"
+        },
+        {
+          "seq": 15066,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 → TRANSPORTING: Carry Box-A to Loading-Zone"
+        },
+        {
+          "seq": 15067,
+          "event": "PATH_CREATED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Loading-Zone: 19 cells"
+        },
+        {
+          "seq": 15145,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 → DELIVERING: Delivering Box-A"
+        },
+        {
+          "seq": 15147,
+          "event": "BOX_DELIVERED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "Box-A delivered to Loading-Zone (DELIVERING → DELIVERED)"
+        },
+        {
+          "seq": 15148,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "task_001 COMPLETED — Task completed"
+        },
+        {
+          "seq": 15298,
+          "event": "TASK_CREATED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "task_001 created: PICK_AND_DELIVER — box_001 → loading_zone"
+        },
+        {
+          "seq": 15300,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_001",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_001 validated successfully"
+        },
+        {
+          "seq": 15310,
+          "event": "BOX_RESERVED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "Box-A reserved for task_001 (STORED → RESERVED)"
+        },
+        {
+          "seq": 15311,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "task_001 assigned to Robo-01"
+        },
+        {
+          "seq": 15312,
+          "event": "TASK_PLANNED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 planned: 5 actions"
+        },
+        {
+          "seq": 15321,
+          "event": "TASK_STARTED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 started"
+        },
+        {
+          "seq": 15322,
+          "event": "PATH_CREATED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Box-A: 3 cells"
+        },
+        {
+          "seq": 15338,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 → PICKING: Picking Box-A"
+        },
+        {
+          "seq": 15342,
+          "event": "BOX_PICKED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "Robo-01 picked Box-A (PICKING → CARRIED)"
+        },
+        {
+          "seq": 15343,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 → TRANSPORTING: Carry Box-A to Loading-Zone"
+        },
+        {
+          "seq": 15344,
+          "event": "PATH_CREATED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Loading-Zone: 19 cells"
+        },
+        {
+          "seq": 15422,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_001 → DELIVERING: Delivering Box-A"
+        },
+        {
+          "seq": 15424,
+          "event": "BOX_DELIVERED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "Box-A delivered to Loading-Zone (DELIVERING → DELIVERED)"
+        },
+        {
+          "seq": 15425,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_001",
+          "robot_id": "robot_01",
+          "box_id": "box_001",
+          "message": "task_001 COMPLETED — Task completed"
         }
       ]
 
@@ -507,6 +843,414 @@
           "robot_id": "robot_02",
           "box_id": "box_002",
           "message": "task_002 COMPLETED — Task completed"
+        },
+        {
+          "seq": 14883,
+          "event": "TASK_CREATED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "task_002 created: PICK_AND_DELIVER — box_002 → packing_area"
+        },
+        {
+          "seq": 14885,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_002",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_002 validated successfully"
+        },
+        {
+          "seq": 14901,
+          "event": "BOX_RESERVED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "Box-B reserved for task_002 (STORED → RESERVED)"
+        },
+        {
+          "seq": 14902,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "task_002 assigned to Robo-02"
+        },
+        {
+          "seq": 14903,
+          "event": "TASK_PLANNED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 planned: 5 actions"
+        },
+        {
+          "seq": 14906,
+          "event": "TASK_STARTED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 started"
+        },
+        {
+          "seq": 14907,
+          "event": "PATH_CREATED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "A* path for Robo-02 → Box-B: 10 cells"
+        },
+        {
+          "seq": 14951,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → PICKING: Picking Box-B"
+        },
+        {
+          "seq": 14957,
+          "event": "BOX_PICKED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "Robo-02 picked Box-B (PICKING → CARRIED)"
+        },
+        {
+          "seq": 14958,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → TRANSPORTING: Carry Box-B to Packing-Area"
+        },
+        {
+          "seq": 14959,
+          "event": "PATH_CREATED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "A* path for Robo-02 → Packing-Area: 6 cells"
+        },
+        {
+          "seq": 14980,
+          "event": "COLLISION_AVOIDED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "Potential collision at (9,11): Robo-01 is in the way of Robo-02"
+        },
+        {
+          "seq": 14981,
+          "event": "ROBOT_WAITING",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "Robo-02 waiting for Robo-01"
+        },
+        {
+          "seq": 14982,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → BLOCKED: Waiting for Robo-01"
+        },
+        {
+          "seq": 14990,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → DELIVERING: Delivering Box-B"
+        },
+        {
+          "seq": 14994,
+          "event": "BOX_DELIVERED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "Box-B delivered to Packing-Area (DELIVERING → DELIVERED)"
+        },
+        {
+          "seq": 14995,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "task_002 COMPLETED — Task completed"
+        },
+        {
+          "seq": 15023,
+          "event": "TASK_CREATED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "task_002 created: PICK_AND_DELIVER — box_002 → packing_area"
+        },
+        {
+          "seq": 15025,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_002",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_002 validated successfully"
+        },
+        {
+          "seq": 15041,
+          "event": "BOX_RESERVED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "Box-B reserved for task_002 (STORED → RESERVED)"
+        },
+        {
+          "seq": 15042,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "task_002 assigned to Robo-02"
+        },
+        {
+          "seq": 15043,
+          "event": "TASK_PLANNED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 planned: 5 actions"
+        },
+        {
+          "seq": 15046,
+          "event": "TASK_STARTED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 started"
+        },
+        {
+          "seq": 15047,
+          "event": "PATH_CREATED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "A* path for Robo-02 → Box-B: 10 cells"
+        },
+        {
+          "seq": 15091,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → PICKING: Picking Box-B"
+        },
+        {
+          "seq": 15097,
+          "event": "BOX_PICKED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "Robo-02 picked Box-B (PICKING → CARRIED)"
+        },
+        {
+          "seq": 15098,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → TRANSPORTING: Carry Box-B to Packing-Area"
+        },
+        {
+          "seq": 15099,
+          "event": "PATH_CREATED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "A* path for Robo-02 → Packing-Area: 6 cells"
+        },
+        {
+          "seq": 15120,
+          "event": "COLLISION_AVOIDED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "Potential collision at (9,11): Robo-01 is in the way of Robo-02"
+        },
+        {
+          "seq": 15121,
+          "event": "ROBOT_WAITING",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "Robo-02 waiting for Robo-01"
+        },
+        {
+          "seq": 15122,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → BLOCKED: Waiting for Robo-01"
+        },
+        {
+          "seq": 15130,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → DELIVERING: Delivering Box-B"
+        },
+        {
+          "seq": 15134,
+          "event": "BOX_DELIVERED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "Box-B delivered to Packing-Area (DELIVERING → DELIVERED)"
+        },
+        {
+          "seq": 15135,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "task_002 COMPLETED — Task completed"
+        },
+        {
+          "seq": 15301,
+          "event": "TASK_CREATED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "task_002 created: PICK_AND_DELIVER — box_002 → packing_area"
+        },
+        {
+          "seq": 15303,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_002",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_002 validated successfully"
+        },
+        {
+          "seq": 15318,
+          "event": "BOX_RESERVED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "Box-B reserved for task_002 (STORED → RESERVED)"
+        },
+        {
+          "seq": 15319,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "task_002 assigned to Robo-02"
+        },
+        {
+          "seq": 15320,
+          "event": "TASK_PLANNED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 planned: 5 actions"
+        },
+        {
+          "seq": 15323,
+          "event": "TASK_STARTED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 started"
+        },
+        {
+          "seq": 15324,
+          "event": "PATH_CREATED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "A* path for Robo-02 → Box-B: 10 cells"
+        },
+        {
+          "seq": 15368,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → PICKING: Picking Box-B"
+        },
+        {
+          "seq": 15374,
+          "event": "BOX_PICKED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "Robo-02 picked Box-B (PICKING → CARRIED)"
+        },
+        {
+          "seq": 15375,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → TRANSPORTING: Carry Box-B to Packing-Area"
+        },
+        {
+          "seq": 15376,
+          "event": "PATH_CREATED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "A* path for Robo-02 → Packing-Area: 6 cells"
+        },
+        {
+          "seq": 15397,
+          "event": "COLLISION_AVOIDED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "Potential collision at (9,11): Robo-01 is in the way of Robo-02"
+        },
+        {
+          "seq": 15398,
+          "event": "ROBOT_WAITING",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "Robo-02 waiting for Robo-01"
+        },
+        {
+          "seq": 15399,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → BLOCKED: Waiting for Robo-01"
+        },
+        {
+          "seq": 15407,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": null,
+          "message": "task_002 → DELIVERING: Delivering Box-B"
+        },
+        {
+          "seq": 15411,
+          "event": "BOX_DELIVERED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "Box-B delivered to Packing-Area (DELIVERING → DELIVERED)"
+        },
+        {
+          "seq": 15412,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_002",
+          "robot_id": "robot_02",
+          "box_id": "box_002",
+          "message": "task_002 COMPLETED — Task completed"
         }
       ]
 
@@ -543,8 +1287,8 @@
           "label": "Shelf-C"
         },
         "destination_zone": {
-          "key": "packing_area",
-          "label": "Packing-Area"
+          "key": "parking_area",
+          "label": "Parking-Area"
         }
       }
     state_diff_json: |
@@ -585,12 +1329,10 @@
             ]
           },
           "destination_zone": {
-            "key": "packing_area",
-            "label": "Packing-Area",
-            "occupied": true,
-            "boxes_present": [
-              "box_002"
-            ]
+            "key": "parking_area",
+            "label": "Parking-Area",
+            "occupied": false,
+            "boxes_present": []
           }
         },
         "after": {
@@ -599,13 +1341,13 @@
             "id": "robot_01",
             "name": "Robo-01",
             "position": {
-              "x": 10,
-              "y": 11
+              "x": 2,
+              "y": 8
             },
-            "zone": "packing_area",
+            "zone": "parking_area",
             "status": "IDLE",
             "carrying_box": null,
-            "battery": 56.0,
+            "battery": 51.0,
             "firmware_version": "2.1.0",
             "allowed_task_types": null
           },
@@ -613,26 +1355,25 @@
             "id": "box_003",
             "name": "Box-C",
             "position": {
-              "x": 10,
-              "y": 11
+              "x": 15,
+              "y": 5
             },
-            "zone": "packing_area",
+            "zone": "shelf_c",
             "status": "DELIVERED"
           },
           "source_zone": {
             "key": "shelf_c",
             "label": "Shelf-C",
-            "occupied": false,
-            "boxes_present": []
-          },
-          "destination_zone": {
-            "key": "packing_area",
-            "label": "Packing-Area",
             "occupied": true,
             "boxes_present": [
-              "box_002",
               "box_003"
             ]
+          },
+          "destination_zone": {
+            "key": "parking_area",
+            "label": "Parking-Area",
+            "occupied": false,
+            "boxes_present": []
           }
         }
       }
@@ -749,6 +1490,230 @@
           "robot_id": "robot_01",
           "box_id": "box_003",
           "message": "task_003 COMPLETED — Task completed"
+        },
+        {
+          "seq": 15149,
+          "event": "TASK_CREATED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "task_003 created: PICK_AND_DELIVER — box_003 → parking_area"
+        },
+        {
+          "seq": 15151,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_003",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_003 validated successfully"
+        },
+        {
+          "seq": 15157,
+          "event": "BOX_RESERVED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "Box-C reserved for task_003 (STORED → RESERVED)"
+        },
+        {
+          "seq": 15158,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "task_003 assigned to Robo-01"
+        },
+        {
+          "seq": 15159,
+          "event": "TASK_PLANNED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_003 planned: 5 actions"
+        },
+        {
+          "seq": 15160,
+          "event": "TASK_STARTED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_003 started"
+        },
+        {
+          "seq": 15161,
+          "event": "PATH_CREATED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Box-C: 7 cells"
+        },
+        {
+          "seq": 15177,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_003 → PICKING: Picking Box-C"
+        },
+        {
+          "seq": 15179,
+          "event": "BOX_PICKED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "Robo-01 picked Box-C (PICKING → CARRIED)"
+        },
+        {
+          "seq": 15180,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_003 → TRANSPORTING: Carry Box-C to Parking-Area"
+        },
+        {
+          "seq": 15181,
+          "event": "PATH_CREATED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Parking-Area: 16 cells"
+        },
+        {
+          "seq": 15215,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_003 → DELIVERING: Delivering Box-C"
+        },
+        {
+          "seq": 15217,
+          "event": "BOX_DELIVERED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "Box-C delivered to Parking-Area (DELIVERING → DELIVERED)"
+        },
+        {
+          "seq": 15218,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "task_003 COMPLETED — Task completed"
+        },
+        {
+          "seq": 15427,
+          "event": "TASK_CREATED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "task_003 created: PICK_AND_DELIVER — box_003 → parking_area"
+        },
+        {
+          "seq": 15429,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_003",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_003 validated successfully"
+        },
+        {
+          "seq": 15435,
+          "event": "BOX_RESERVED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "Box-C reserved for task_003 (STORED → RESERVED)"
+        },
+        {
+          "seq": 15436,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "task_003 assigned to Robo-01"
+        },
+        {
+          "seq": 15437,
+          "event": "TASK_PLANNED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_003 planned: 5 actions"
+        },
+        {
+          "seq": 15438,
+          "event": "TASK_STARTED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_003 started"
+        },
+        {
+          "seq": 15439,
+          "event": "PATH_CREATED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Box-C: 7 cells"
+        },
+        {
+          "seq": 15455,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_003 → PICKING: Picking Box-C"
+        },
+        {
+          "seq": 15457,
+          "event": "BOX_PICKED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "Robo-01 picked Box-C (PICKING → CARRIED)"
+        },
+        {
+          "seq": 15458,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_003 → TRANSPORTING: Carry Box-C to Parking-Area"
+        },
+        {
+          "seq": 15459,
+          "event": "PATH_CREATED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Parking-Area: 16 cells"
+        },
+        {
+          "seq": 15493,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_003 → DELIVERING: Delivering Box-C"
+        },
+        {
+          "seq": 15496,
+          "event": "BOX_DELIVERED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "Box-C delivered to Parking-Area (DELIVERING → DELIVERED)"
+        },
+        {
+          "seq": 15497,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_003",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "task_003 COMPLETED — Task completed"
         }
       ]
 
@@ -791,7 +1756,7 @@
       }
     state_diff_json: |
       {
-        "terminal_event": "TASK_COMPLETED",
+        "terminal_event": "TASK_FAILED",
         "before": {
           "task_type": "PICK_AND_DELIVER",
           "robot": {
@@ -836,8 +1801,8 @@
         "after": {
           "task_type": "PICK_AND_DELIVER",
           "robot": {
-            "id": "robot_02",
-            "name": "Robo-02",
+            "id": "robot_01",
+            "name": "Robo-01",
             "position": {
               "x": 2,
               "y": 8
@@ -845,33 +1810,41 @@
             "zone": "parking_area",
             "status": "IDLE",
             "carrying_box": null,
-            "battery": 60.0,
+            "battery": 51.0,
             "firmware_version": "2.1.0",
-            "allowed_task_types": null
+            "allowed_task_types": [
+              "BATCH_DELIVER",
+              "CHARGE_ROBOT",
+              "DELIVER_BOX",
+              "MIXED_MAINTENANCE_MISSION",
+              "MOVE_BOX",
+              "MOVE_ROBOT",
+              "PICK_BOX"
+            ]
           },
           "box": {
-            "id": "box_005",
-            "name": "Box-E",
+            "id": "box_003",
+            "name": "Box-C",
             "position": {
-              "x": 11,
-              "y": 5
+              "x": 2,
+              "y": 8
             },
-            "zone": "shelf_b",
+            "zone": "parking_area",
             "status": "DELIVERED"
           },
           "source_zone": {
-            "key": "shelf_b",
-            "label": "Shelf-B",
-            "occupied": true,
-            "boxes_present": [
-              "box_005"
-            ]
+            "key": "shelf_c",
+            "label": "Shelf-C",
+            "occupied": false,
+            "boxes_present": []
           },
           "destination_zone": {
             "key": "parking_area",
             "label": "Parking-Area",
-            "occupied": false,
-            "boxes_present": []
+            "occupied": true,
+            "boxes_present": [
+              "box_003"
+            ]
           }
         }
       }
@@ -988,5 +1961,646 @@
           "robot_id": "robot_02",
           "box_id": "box_005",
           "message": "task_004 COMPLETED — Task completed"
+        },
+        {
+          "seq": 15220,
+          "event": "TASK_CREATED",
+          "task_id": "task_004",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "task_004 created: PICK_AND_DELIVER — box_003 → parking_area"
+        },
+        {
+          "seq": 15222,
+          "event": "TASK_FAILED",
+          "task_id": "task_004",
+          "robot_id": "robot_01",
+          "box_id": "box_003",
+          "message": "task_004 FAILED — Robo-01 is not configured to run PICK_AND_DELIVER tasks (allowed: ['BATCH_DELIVER', 'CHARGE_ROBOT', 'DELIVER_BOX', 'MIXED_MAINTENANCE_MISSION', 'MOVE_BOX', 'MOVE_ROBOT', 'PICK_BOX'])"
+        }
+      ]
+
+- description: "task_005.json (real log) — Groq judges the state transition"
+  vars:
+    task_log: "logs/tasks/task_005.json"
+    task_json: |
+      {
+        "task_id": "task_005",
+        "type": "PICK_AND_DELIVER",
+        "requested_robot": "robot_01",
+        "requested_agent": "AUTO",
+        "requested_operator": "AUTO",
+        "required_certification": null,
+        "box_id": "box_005",
+        "source": "shelf_b",
+        "destination": "loading_zone",
+        "priority": "NORMAL",
+        "summary": "box_005 → loading_zone",
+        "message": "task_005 created: PICK_AND_DELIVER — box_005 → loading_zone"
+      }
+    entities_json: |
+      {
+        "robot": {
+          "id": "robot_01",
+          "name": "Robo-01"
+        },
+        "box": {
+          "id": "box_005",
+          "name": "Box-E"
+        },
+        "source_zone": {
+          "key": "shelf_b",
+          "label": "Shelf-B"
+        },
+        "destination_zone": {
+          "key": "loading_zone",
+          "label": "Loading-Zone"
+        }
+      }
+    state_diff_json: |
+      {
+        "terminal_event": "TASK_FAILED",
+        "before": {
+          "task_type": "PICK_AND_DELIVER",
+          "robot": {
+            "id": "robot_01",
+            "name": "Robo-01",
+            "position": {
+              "x": 10,
+              "y": 11
+            },
+            "zone": "packing_area",
+            "status": "PLANNING",
+            "carrying_box": null,
+            "battery": 56.0,
+            "firmware_version": "2.1.0",
+            "allowed_task_types": null
+          },
+          "box": {
+            "id": "box_005",
+            "name": "Box-E",
+            "position": {
+              "x": 11,
+              "y": 5
+            },
+            "zone": "shelf_b",
+            "status": "RESERVED"
+          },
+          "source_zone": {
+            "key": "shelf_b",
+            "label": "Shelf-B",
+            "occupied": true,
+            "boxes_present": [
+              "box_005"
+            ]
+          },
+          "destination_zone": {
+            "key": "loading_zone",
+            "label": "Loading-Zone",
+            "occupied": true,
+            "boxes_present": [
+              "box_001"
+            ]
+          }
+        },
+        "after": {
+          "task_type": "AGENT_INSPECTION",
+          "robot": {
+            "id": "robot_01",
+            "name": "Robo-01",
+            "position": {
+              "x": 2,
+              "y": 8
+            },
+            "zone": "parking_area",
+            "status": "IDLE",
+            "carrying_box": null,
+            "battery": 51.0,
+            "firmware_version": "2.1.0",
+            "allowed_task_types": [
+              "BATCH_DELIVER",
+              "CHARGE_ROBOT",
+              "DELIVER_BOX",
+              "MIXED_MAINTENANCE_MISSION",
+              "MOVE_BOX",
+              "MOVE_ROBOT",
+              "PICK_BOX"
+            ]
+          },
+          "agent": {
+            "id": "agent_002",
+            "name": "aLI",
+            "model_version": "FAKE",
+            "status": "IDLE"
+          }
+        }
+      }
+    task_log_json: |
+      [
+        {
+          "seq": 14763,
+          "event": "TASK_CREATED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": "box_005",
+          "message": "task_005 created: PICK_AND_DELIVER — box_005 → loading_zone"
+        },
+        {
+          "seq": 14765,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_005",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_005 validated successfully"
+        },
+        {
+          "seq": 14771,
+          "event": "BOX_RESERVED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": "box_005",
+          "message": "Box-E reserved for task_005 (DELIVERED → RESERVED)"
+        },
+        {
+          "seq": 14772,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": "box_005",
+          "message": "task_005 assigned to Robo-01"
+        },
+        {
+          "seq": 14773,
+          "event": "TASK_PLANNED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_005 planned: 5 actions"
+        },
+        {
+          "seq": 14774,
+          "event": "TASK_STARTED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_005 started"
+        },
+        {
+          "seq": 14775,
+          "event": "PATH_CREATED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Box-E: 7 cells"
+        },
+        {
+          "seq": 14791,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_005 → PICKING: Picking Box-E"
+        },
+        {
+          "seq": 14793,
+          "event": "BOX_PICKED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": "box_005",
+          "message": "Robo-01 picked Box-E (PICKING → CARRIED)"
+        },
+        {
+          "seq": 14794,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_005 → TRANSPORTING: Carry Box-E to Loading-Zone"
+        },
+        {
+          "seq": 14795,
+          "event": "PATH_CREATED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Loading-Zone: 12 cells"
+        },
+        {
+          "seq": 14821,
+          "event": "TASK_PROGRESS",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_005 → DELIVERING: Delivering Box-E"
+        },
+        {
+          "seq": 14823,
+          "event": "BOX_DELIVERED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": "box_005",
+          "message": "Box-E delivered to Loading-Zone (DELIVERING → DELIVERED)"
+        },
+        {
+          "seq": 14824,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": "box_005",
+          "message": "task_005 COMPLETED — Task completed"
+        },
+        {
+          "seq": 15227,
+          "event": "TASK_CREATED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_005 created: AGENT_INSPECTION — agent inspection"
+        },
+        {
+          "seq": 15229,
+          "event": "TASK_FAILED",
+          "task_id": "task_005",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_005 FAILED — aLI is running an unapproved model 'FAKE' (approved: ['groq/gpt-oss-20b', 'groq/gpt-oss-120b'])"
+        }
+      ]
+
+- description: "task_006.json (real log) — Groq judges the state transition"
+  vars:
+    task_log: "logs/tasks/task_006.json"
+    task_json: |
+      {
+        "task_id": "task_006",
+        "type": "CHARGE_ROBOT",
+        "requested_robot": "robot_01",
+        "requested_agent": "AUTO",
+        "requested_operator": "AUTO",
+        "required_certification": null,
+        "box_id": null,
+        "source": null,
+        "destination": null,
+        "priority": "NORMAL",
+        "summary": "charge",
+        "message": "task_006 created: CHARGE_ROBOT — charge"
+      }
+    entities_json: |
+      {
+        "robot": {
+          "id": "robot_01",
+          "name": "Robo-01"
+        },
+        "agent": {
+          "id": "agent_001",
+          "name": "Ada"
+        }
+      }
+    state_diff_json: |
+      {
+        "terminal_event": "TASK_COMPLETED",
+        "before": {
+          "task_type": "AGENT_INSPECTION",
+          "robot": {
+            "id": "robot_01",
+            "name": "Robo-01",
+            "position": {
+              "x": 2,
+              "y": 8
+            },
+            "zone": "parking_area",
+            "status": "IDLE",
+            "carrying_box": null,
+            "battery": 51.0,
+            "firmware_version": "2.1.0",
+            "allowed_task_types": [
+              "BATCH_DELIVER",
+              "CHARGE_ROBOT",
+              "DELIVER_BOX",
+              "MIXED_MAINTENANCE_MISSION",
+              "MOVE_BOX",
+              "MOVE_ROBOT",
+              "PICK_BOX"
+            ]
+          },
+          "agent": {
+            "id": "agent_001",
+            "name": "Ada",
+            "model_version": "groq/gpt-oss-20b",
+            "status": "IDLE"
+          }
+        },
+        "after": {
+          "task_type": "AGENT_INSPECTION",
+          "robot": {
+            "id": "robot_01",
+            "name": "Robo-01",
+            "position": {
+              "x": 2,
+              "y": 8
+            },
+            "zone": "parking_area",
+            "status": "IDLE",
+            "carrying_box": null,
+            "battery": 51.0,
+            "firmware_version": "2.1.0",
+            "allowed_task_types": [
+              "BATCH_DELIVER",
+              "CHARGE_ROBOT",
+              "DELIVER_BOX",
+              "MIXED_MAINTENANCE_MISSION",
+              "MOVE_BOX",
+              "MOVE_ROBOT",
+              "PICK_BOX"
+            ]
+          },
+          "agent": {
+            "id": "agent_001",
+            "name": "Ada",
+            "model_version": "groq/gpt-oss-20b",
+            "status": "IDLE"
+          }
+        }
+      }
+    task_log_json: |
+      [
+        {
+          "seq": 14825,
+          "event": "TASK_CREATED",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_006 created: CHARGE_ROBOT — charge"
+        },
+        {
+          "seq": 14827,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_006",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_006 validated successfully"
+        },
+        {
+          "seq": 14830,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_006 assigned to Robo-01"
+        },
+        {
+          "seq": 14831,
+          "event": "TASK_PLANNED",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_006 planned: 3 actions"
+        },
+        {
+          "seq": 14832,
+          "event": "TASK_STARTED",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_006 started"
+        },
+        {
+          "seq": 14833,
+          "event": "PATH_CREATED",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Charging-Station: 15 cells"
+        },
+        {
+          "seq": 14864,
+          "event": "BATTERY_LOW",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "Robo-01 battery low at 20%"
+        },
+        {
+          "seq": 14866,
+          "event": "ROBOT_CHARGING",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "Robo-01 started charging at 20%"
+        },
+        {
+          "seq": 14867,
+          "event": "ROBOT_CHARGED",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "Robo-01 fully charged (CHARGING → IDLE)"
+        },
+        {
+          "seq": 14868,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_006 COMPLETED — Task completed"
+        },
+        {
+          "seq": 15230,
+          "event": "TASK_CREATED",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_006 created: AGENT_INSPECTION — agent inspection"
+        },
+        {
+          "seq": 15232,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_006",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_006 validated successfully"
+        },
+        {
+          "seq": 15233,
+          "event": "TASK_STARTED",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_006 started"
+        },
+        {
+          "seq": 15234,
+          "event": "AGENT_RECOMMENDATION",
+          "task_id": "task_006",
+          "robot_id": null,
+          "box_id": null,
+          "message": "Ada reviewed current conditions and produced a recommendation"
+        },
+        {
+          "seq": 15235,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_006",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_006 COMPLETED — Agent inspection completed"
+        }
+      ]
+
+- description: "task_007.json (real log) — Groq judges the state transition"
+  vars:
+    task_log: "logs/tasks/task_007.json"
+    task_json: |
+      {
+        "task_id": "task_007",
+        "type": "MOVE_ROBOT",
+        "requested_robot": "robot_01",
+        "requested_agent": "AUTO",
+        "requested_operator": "AUTO",
+        "required_certification": null,
+        "box_id": null,
+        "source": null,
+        "destination": "loading zone",
+        "priority": "NORMAL",
+        "summary": "move to loading zone",
+        "message": "task_007 created: MOVE_ROBOT — move to loading zone"
+      }
+    entities_json: |
+      {
+        "robot": {
+          "id": "robot_01",
+          "name": "Robo-01"
+        },
+        "destination_zone": {
+          "key": "loading_zone",
+          "label": "Loading-Zone"
+        }
+      }
+    state_diff_json: |
+      {
+        "terminal_event": "TASK_COMPLETED",
+        "before": {
+          "task_type": "MOVE_ROBOT",
+          "robot": {
+            "id": "robot_01",
+            "name": "Robo-01",
+            "position": {
+              "x": 2,
+              "y": 8
+            },
+            "zone": "parking_area",
+            "status": "PLANNING",
+            "carrying_box": null,
+            "battery": 51.0,
+            "firmware_version": "2.1.0",
+            "allowed_task_types": [
+              "BATCH_DELIVER",
+              "CHARGE_ROBOT",
+              "DELIVER_BOX",
+              "MIXED_MAINTENANCE_MISSION",
+              "MOVE_BOX",
+              "MOVE_ROBOT",
+              "PICK_BOX"
+            ]
+          },
+          "destination_zone": {
+            "key": "loading_zone",
+            "label": "Loading-Zone",
+            "occupied": true,
+            "boxes_present": [
+              "box_001"
+            ]
+          }
+        },
+        "after": {
+          "task_type": "MOVE_ROBOT",
+          "robot": {
+            "id": "robot_01",
+            "name": "Robo-01",
+            "position": {
+              "x": 16,
+              "y": 11
+            },
+            "zone": "loading_zone",
+            "status": "IDLE",
+            "carrying_box": null,
+            "battery": 34.0,
+            "firmware_version": "2.1.0",
+            "allowed_task_types": [
+              "BATCH_DELIVER",
+              "CHARGE_ROBOT",
+              "DELIVER_BOX",
+              "MIXED_MAINTENANCE_MISSION",
+              "MOVE_BOX",
+              "MOVE_ROBOT",
+              "PICK_BOX"
+            ]
+          },
+          "destination_zone": {
+            "key": "loading_zone",
+            "label": "Loading-Zone",
+            "occupied": true,
+            "boxes_present": [
+              "box_001"
+            ]
+          }
+        }
+      }
+    task_log_json: |
+      [
+        {
+          "seq": 15237,
+          "event": "TASK_CREATED",
+          "task_id": "task_007",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_007 created: MOVE_ROBOT — move to loading zone"
+        },
+        {
+          "seq": 15239,
+          "event": "TASK_VALIDATED",
+          "task_id": "task_007",
+          "robot_id": null,
+          "box_id": null,
+          "message": "task_007 validated successfully"
+        },
+        {
+          "seq": 15244,
+          "event": "TASK_ASSIGNED",
+          "task_id": "task_007",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_007 assigned to Robo-01"
+        },
+        {
+          "seq": 15245,
+          "event": "TASK_PLANNED",
+          "task_id": "task_007",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_007 planned: 2 actions"
+        },
+        {
+          "seq": 15246,
+          "event": "TASK_STARTED",
+          "task_id": "task_007",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_007 started"
+        },
+        {
+          "seq": 15247,
+          "event": "PATH_CREATED",
+          "task_id": "task_007",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "A* path for Robo-01 → Loading-Zone: 17 cells"
+        },
+        {
+          "seq": 15284,
+          "event": "TASK_COMPLETED",
+          "task_id": "task_007",
+          "robot_id": "robot_01",
+          "box_id": null,
+          "message": "task_007 COMPLETED — Task completed"
         }
       ]

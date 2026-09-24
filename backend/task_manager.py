@@ -52,6 +52,7 @@ class Task:
         required_certification: Optional[str] = None,
         second_operator_id: Optional[str] = None,
         dual_signoff: bool = False,
+        external_ref: Optional[Dict[str, Any]] = None,
     ) -> None:
         self.id = task_id
         self.type = task_type
@@ -82,6 +83,13 @@ class Task:
             None if not self.requested_second_operator or self.requested_second_operator == "AUTO"
             else second_operator_id
         )
+        # Set when this task was created on behalf of an external system
+        # (currently just Carbon — see backend/carbon_client.py) rather
+        # than a person or the agent chat. Opaque to everything except
+        # that integration: e.g. {"source": "carbon", "job_id": "...",
+        # "traveler_id": "...", "operation": "..."}. None for every task
+        # created the normal way, which is most of them.
+        self.external_ref: Optional[Dict[str, Any]] = external_ref
         self.status = TaskStatus.CREATED
         self.actions: List[Action] = []
         self.action_index = 0
@@ -181,6 +189,7 @@ class Task:
             "recharged_before_start": self.recharged_before_start,
             "replans": self.replans,
             "internal": self.internal,
+            "external_ref": self.external_ref,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
             "started_at": self.started_at,
@@ -205,6 +214,7 @@ class Task:
             required_certification=data.get("required_certification"),
             second_operator_id=data.get("requested_second_operator"),
             dual_signoff=data.get("dual_signoff", False),
+            external_ref=data.get("external_ref"),
         )
         task.robot_id = data.get("robot_id")
         task.agent_id = data.get("agent_id")
@@ -468,6 +478,7 @@ class TaskManager:
                 required_certification=payload.get("required_certification"),
                 second_operator_id=second_operator_spec,
                 dual_signoff=bool(payload.get("dual_signoff")),
+                external_ref=payload.get("external_ref"),
             )
             self.tasks[task.id] = task
 
